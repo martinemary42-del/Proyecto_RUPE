@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard-admin.html">Panel</a>
+            <a href="admin-usuarios.html">Usuarios</a>
+            <a href="admin-reportes.html">Reportes</a>
+            <a href="admin-catalogos.html">Catálogos</a>
+            <a href="admin-estadisticas.html" class="active">Estadísticas</a>
+            <a href="admin-soporte.html">Soporte</a>
+            <a href="admin-bitacora.html">Bitácora</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+    </div>
+</header>
+<main data-source="api" class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Estadisticas</h1>
+                <p>Indicadores reales del sistema para seguimiento administrativo y exportacion editable.</p>
+            </div>
+            <div class="module-actions">
+                <button class="module-btn" id="actualizarEstadisticas">Actualizar datos</button>
+                <button class="module-btn secondary" id="exportarEstadisticasExcel">Descargar Excel</button>
+                <button class="module-btn secondary" id="exportarEstadisticasCsv">CSV</button>
+            </div>
+        </div>
+
+        <section class="module-panel">
+            <h2>Filtros</h2>
+            <form class="admin-user-filters" id="filtrosEstadisticasAdmin">
+                <div class="form-group admin-user-search">
+                    <label for="buscarEstadisticasZona">Zona, folio, raza o perrito</label>
+                    <input type="search" id="buscarEstadisticasZona" placeholder="Ejemplo: Benito Juarez, Chihuahua o RUPE">
+                </div>
+                <div class="form-group">
+                    <label for="filtroEstadisticasEstatus">Estatus</label>
+                    <select id="filtroEstadisticasEstatus">
+                        <option value="">Todos</option>
+                        <option value="ACTIVO">Activo</option>
+                        <option value="RECUPERADO">Recuperado</option>
+                        <option value="CERRADO">Cerrado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fechaEstadisticasDesde">Desde</label>
+                    <input type="date" id="fechaEstadisticasDesde">
+                </div>
+                <div class="form-group">
+                    <label for="fechaEstadisticasHasta">Hasta</label>
+                    <input type="date" id="fechaEstadisticasHasta">
+                </div>
+                <button type="button" class="module-btn secondary admin-action-btn" id="limpiarFiltrosEstadisticas">Limpiar</button>
+            </form>
+            <p class="admin-user-count" id="contadorEstadisticasAdmin">Cargando informacion...</p>
+        </section>
+
+        <section class="module-grid admin-summary-grid">
+            <article class="module-card"><i class="fas fa-dog"></i><h3 data-stat="mascotasRegistradas">0</h3><p>Perritos registrados</p></article>
+            <article class="module-card"><i class="fas fa-file-circle-exclamation"></i><h3 data-stat="reportesActivos">0</h3><p>Reportes activos</p></article>
+            <article class="module-card"><i class="fas fa-location-dot"></i><h3 data-stat="reportesExtravio">0</h3><p>Extravío o pérdida</p></article>
+            <article class="module-card"><i class="fas fa-triangle-exclamation"></i><h3 data-stat="reportesRobo">0</h3><p>Robo de mascota</p></article>
+            <article class="module-card"><i class="fas fa-house-circle-check"></i><h3 data-stat="mascotasRecuperadas">0</h3><p>Perritos recuperados</p></article>
+            <article class="module-card"><i class="fas fa-eye"></i><h3 data-stat="avistamientos">0</h3><p>Avistamientos</p></article>
+            <article class="module-card"><i class="fas fa-clock"></i><h3 data-stat="reportesPendientesRenovacion">0</h3><p>Pendientes de renovacion</p></article>
+            <article class="module-card"><i class="fas fa-user-slash"></i><h3 data-stat="usuariosBajaPropia">0</h3><p>Bajas solicitadas por usuarios</p></article>
+            <article class="module-card"><i class="fas fa-chart-line"></i><h3 data-stat="visitasTotales">0</h3><p>Visitas publicas</p></article>
+        </section>
+
+        <section class="module-panel">
+            <h2>Graficas generales</h2>
+            <p class="admin-note">Los datos se calculan desde la base de datos. No se muestran nombres, telefonos ni correos.</p>
+            <div class="stats-chart-grid">
+                <article class="stats-chart-card">
+                    <h3>Reportes por estatus</h3>
+                    <div id="graficaEstatusReportes" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Reportes por tipo</h3>
+                    <div id="graficaTipoReportes" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Avistamientos por reporte</h3>
+                    <div id="graficaAvistamientosReportes" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Vigencia de reportes</h3>
+                    <div id="graficaVigenciaReportes" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Zonas con mas reportes</h3>
+                    <div id="graficaZonasReportes" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Visitas por pagina</h3>
+                    <div id="graficaVisitasPaginas" class="stats-visual">Cargando grafica...</div>
+                </article>
+                <article class="stats-chart-card">
+                    <h3>Usuarios y seguridad</h3>
+                    <div id="graficaUsuariosSeguridad" class="stats-visual">Cargando grafica...</div>
+                </article>
+            </div>
+        </section>
+
+        <section class="module-panel">
+            <h2>Reportes por zona</h2>
+            <p class="admin-note">Permite revisar concentracion de reportes y avistamientos por ubicacion registrada.</p>
+            <table class="module-table">
+                <thead>
+                    <tr><th>Zona</th><th>Reportes</th><th>Avistamientos</th><th>Activos</th><th>Recuperados</th></tr>
+                </thead>
+                <tbody id="tablaEstadisticasZona">
+                    <tr><td colspan="5">Cargando estadisticas...</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="module-panel">
+            <h2>Visitas por pagina</h2>
+            <p class="admin-note">Conteo agregado para medir uso del sitio sin guardar datos personales en esta vista.</p>
+            <table class="module-table">
+                <thead><tr><th>Pagina</th><th>Visitas</th></tr></thead>
+                <tbody id="tablaEstadisticasVisitas">
+                    <tr><td colspan="2">Cargando visitas...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("ADMINISTRADOR");</script>
+<script src="assets/js/admin-estadisticas.js?v=20260714-1"></script>
+</body>
+</html>

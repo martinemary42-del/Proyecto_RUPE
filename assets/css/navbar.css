@@ -1,0 +1,262 @@
+/* =====================================================
+   RUPE
+   Registro Único de Perritos Extraviados
+
+   Archivo:
+   navbar.css
+
+   Descripción:
+   Estilos del encabezado principal,
+   logotipo, menú de navegación
+   y botones de acceso.
+
+===================================================== */
+
+/* =====================================================
+   HEADER PRINCIPAL
+===================================================== */
+
+header{
+
+    background:var(--vino-principal);
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:var(--z-header);
+
+    box-shadow:var(--sombra-md);
+}
+
+/* =====================================================
+   CONTENEDOR NAVBAR
+===================================================== */
+
+.navbar{
+
+    height:var(--altura-header);
+
+    max-width:var(--contenedor-maximo);
+
+    margin:auto;
+
+    padding:0 var(--espacio-md);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--espacio-sm);
+
+    flex:0 0 auto;
+}
+
+.logo img{
+
+    width:100px;
+    height:45px;
+}
+
+.logo-text h1{
+
+    color:var(--blanco);
+
+    font-size:1.3rem;
+
+    font-weight:700;
+}
+
+.logo-text p{
+
+    color:rgba(255,255,255,.85);
+
+    font-size:var(--texto-xs);
+}
+
+/* =====================================================
+   MENÚ
+===================================================== */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    justify-content:flex-end;
+
+    flex-wrap:nowrap;
+
+    min-width:0;
+}
+
+.nav-links a{
+
+    color:var(--blanco);
+
+    font-size:13px;
+
+    font-weight:500;
+
+    padding:7px 9px;
+
+    border-radius:var(--radio-sm);
+
+    transition:var(--transicion-normal);
+
+    text-align:center;
+
+    white-space:nowrap;
+}
+
+.nav-links a:hover{
+
+    background:rgba(255,255,255,.10);
+
+    color:var(--dorado-principal);
+}
+
+/* =====================================================
+   BOTONES DEL MENÚ
+===================================================== */
+
+.btn-nav-login{
+
+    border:1px solid var(--blanco);
+
+    color:var(--blanco);
+
+    padding:9px 12px;
+
+    border-radius:var(--radio-md);
+
+    transition:var(--transicion-normal);
+}
+
+.btn-nav-login:hover{
+
+    background:var(--blanco);
+
+    color:var(--vino-principal);
+}
+
+.btn-nav-register{
+
+    background:var(--dorado-principal);
+
+    color:var(--blanco);
+
+    padding:9px 12px;
+
+    border-radius:var(--radio-md);
+
+    transition:var(--transicion-normal);
+}
+
+.btn-nav-register:hover{
+
+    background:var(--dorado-hover);
+
+    transform:translateY(-2px);
+}
+
+/* =====================================================
+   MENÚ MÓVIL
+===================================================== */
+
+.menu-toggle{
+
+    display:none;
+
+    flex-direction:column;
+
+    cursor:pointer;
+
+    gap:5px;
+}
+
+.menu-toggle span{
+
+    width:25px;
+
+    height:3px;
+
+    background:var(--blanco);
+
+    border-radius:5px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:992px){
+
+    .navbar{
+        height:auto;
+        min-height:var(--altura-header);
+        align-items:center;
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+
+    .nav-links{
+
+        gap:6px;
+    }
+
+    .nav-links a{
+
+        font-size:12px;
+
+        padding:6px 7px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .navbar{
+
+        height:auto;
+
+        padding:15px;
+    }
+
+    .menu-toggle{
+
+        display:flex;
+    }
+
+    .nav-links{
+
+        display:none;
+    }
+
+}
+.nav-links a.active{
+    background:rgba(255,255,255,.14);
+    color:var(--dorado-principal);
+}

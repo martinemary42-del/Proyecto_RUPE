@@ -1,0 +1,404 @@
+﻿.reporte-banner{
+    background:#f5f5f5;
+    border-bottom:1px solid #dddddd;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#555;
+}
+
+.reporte-banner i{
+    color:var(--vino-principal);
+}
+
+.reporte-page{
+    background:#f7f7f7;
+    padding:80px 20px;
+}
+
+.reporte-wrapper{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 850px;
+    gap:60px;
+    align-items:start;
+}
+
+.reporte-badge{
+    display:inline-block;
+    background:rgba(97,18,50,.10);
+    color:var(--vino-principal);
+    border:1px solid rgba(97,18,50,.15);
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.reporte-info h1{
+    color:var(--vino-principal);
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.reporte-info p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.reporte-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.reporte-list div{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.reporte-list i{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--vino-principal);
+    color:white;
+}
+
+.reporte-card{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:var(--sombra-lg);
+    border-top:6px solid var(--vino-principal);
+}
+
+.reporte-card-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.reporte-card-header h2{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.reporte-card-header p{
+    color:#666;
+}
+
+.form-section-title{
+    color:var(--vino-principal);
+    margin-top:35px;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:2px solid #eeeeee;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:14px;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+    font-family:'Montserrat', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    outline:none;
+    border-color:var(--vino-principal);
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+}
+
+.btn-limpiar{
+    border:none;
+    background:#f1f1f1;
+    color:#444;
+    padding:13px 18px;
+    border-radius:10px;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-limpiar:hover{
+    background:#e5e5e5;
+}
+
+.lista-reportes{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.reporte-item{
+    border:1px solid #e5e5e5;
+    border-radius:16px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:80px 1fr 210px;
+    gap:20px;
+    align-items:center;
+    background:#ffffff;
+    box-shadow:0 6px 16px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.reporte-item:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.reporte-icono{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.7rem;
+}
+
+.reporte-icono.activo{
+    background:#fff3cd;
+    color:#664d03;
+}
+
+.reporte-icono.recuperado{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.reporte-icono.cerrado{
+    background:#e2e3e5;
+    color:#41464b;
+}
+
+.reporte-datos h3{
+    color:var(--vino-principal);
+    font-size:1.4rem;
+    margin:8px 0 10px;
+}
+
+.reporte-datos p{
+    color:#555;
+    margin:5px 0;
+    font-size:.95rem;
+}
+
+.estatus{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:.78rem;
+    font-weight:700;
+}
+
+.estatus-activo{
+    background:#fff3cd;
+    color:#664d03;
+}
+
+.estatus-recuperado{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.estatus-cerrado{
+    background:#e2e3e5;
+    color:#41464b;
+}
+
+.reporte-acciones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.btn-accion,
+.btn-nuevo{
+    width:100%;
+    border:none;
+    padding:11px 12px;
+    border-radius:10px;
+    font-size:.88rem;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    font-family:'Montserrat', sans-serif;
+}
+
+.btn-accion{
+    background:#ffffff;
+    color:var(--vino-principal);
+    border:1px solid var(--vino-principal);
+}
+
+.btn-accion:hover{
+    background:var(--vino-principal);
+    color:#ffffff;
+}
+
+.btn-pdf{
+    color:#842029;
+    border:1px solid #842029;
+}
+
+.btn-pdf:hover{
+    background:#842029;
+    color:white;
+}
+
+.btn-aviso{
+    color:#084298;
+    border:1px solid #084298;
+}
+
+.btn-aviso:hover{
+    background:#084298;
+    color:white;
+}
+
+.btn-historial{
+    color:#0f5132;
+    border:1px solid #0f5132;
+}
+
+.btn-historial:hover{
+    background:#0f5132;
+    color:white;
+}
+
+.sin-resultados{
+    display:none;
+    margin-top:30px;
+    text-align:center;
+    background:#fafafa;
+    border:1px dashed #cccccc;
+    border-radius:16px;
+    padding:35px;
+}
+
+.sin-resultados i{
+    color:var(--vino-principal);
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.sin-resultados h3{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.sin-resultados p{
+    color:#666;
+}
+
+.btn-nuevo{
+    max-width:220px;
+    margin:20px auto 0;
+    background:var(--vino-principal);
+    color:white;
+}
+
+.btn-nuevo:hover{
+    background:var(--vino-hover);
+}
+
+@media(max-width:1200px){
+
+    .reporte-wrapper{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .reporte-item{
+        grid-template-columns:1fr;
+    }
+
+    .reporte-icono{
+        margin:auto;
+    }
+
+    .reporte-acciones{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .reporte-info h1{
+        font-size:2.2rem;
+    }
+
+    .reporte-card{
+        padding:25px;
+    }
+
+    .reporte-acciones{
+        grid-template-columns:1fr;
+    }
+
+}
+.estatus-vencido{
+    background:#fde8e8;
+    color:#991b1b;
+    margin-left:8px;
+}
+
+.btn-renovar{
+    color:#7a4b00;
+    border:1px solid #b7791f;
+    background:#fff8e1;
+}
+
+.btn-renovar:hover{
+    background:#b7791f;
+    color:#ffffff;
+}

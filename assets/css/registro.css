@@ -1,0 +1,321 @@
+/* =====================================================
+   REGISTRO RUPE
+   Estilo institucional inspirado en gob.mx
+===================================================== */
+
+/* BARRA SUPERIOR INFORMATIVA */
+.registro-banner{
+    background:#f5f5f5;
+    border-bottom:1px solid #dddddd;
+    padding:15px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#555555;
+    text-align:center;
+}
+
+.registro-banner i{
+    color:var(--vino-principal);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.registro-page{
+    background:#f7f7f7;
+    min-height:calc(100vh - 120px);
+    padding:80px 20px;
+}
+
+.registro-wrapper{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 560px;
+    gap:60px;
+    align-items:center;
+}
+
+/* PANEL INFORMATIVO */
+.registro-info{
+    padding:20px;
+}
+
+.registro-badge{
+    display:inline-block;
+    background:rgba(97,18,50,.10);
+    color:var(--vino-principal);
+    border:1px solid rgba(97,18,50,.15);
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.registro-info h1{
+    color:var(--vino-principal);
+    font-size:3rem;
+    margin-bottom:25px;
+    line-height:1.2;
+}
+
+.registro-info p{
+    color:#555;
+    font-size:1.1rem;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* LISTA DE SEGURIDAD */
+.registro-security-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.registro-security-list div{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.registro-security-list i{
+    width:45px;
+    height:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:var(--vino-principal);
+    color:white;
+}
+
+.registro-security-list span{
+    color:#444;
+    font-weight:500;
+}
+
+/* TARJETA DE REGISTRO */
+.registro-card{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border-top:6px solid var(--vino-principal);
+}
+
+.registro-card-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.registro-card-header img{
+    width:90px;
+    margin:auto auto 20px;
+}
+
+.registro-card-header h2{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.registro-card-header p{
+    color:#666;
+}
+
+/* FORMULARIO */
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+.form-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:var(--vino-principal);
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+}
+
+.form-group small{
+    display:block;
+    margin-top:8px;
+    color:#777;
+    font-size:.82rem;
+}
+
+/* CAPTCHA DEMOSTRATIVO */
+.captcha-demo{
+    margin:25px 0;
+}
+
+.captcha-box{
+    border:1px solid #dcdcdc;
+    background:#fafafa;
+    padding:15px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.captcha-box input{
+    width:20px;
+    height:20px;
+}
+
+.captcha-box label{
+    font-weight:600;
+    color:#333;
+}
+
+.captcha-demo small{
+    display:block;
+    margin-top:8px;
+    color:#777;
+    font-size:.80rem;
+}
+
+/* AVISO DE PRIVACIDAD */
+.privacy-check{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:25px;
+    background:#f8f8f8;
+    border-left:4px solid var(--vino-principal);
+    padding:15px;
+    border-radius:8px;
+}
+
+.privacy-check input{
+    margin-top:5px;
+}
+
+.privacy-check label{
+    color:#555;
+    line-height:1.6;
+    font-size:.92rem;
+}
+
+.privacy-check a{
+    color:var(--vino-principal);
+    font-weight:600;
+}
+
+.privacy-check a:hover{
+    color:var(--dorado-principal);
+}
+
+/* BOTÓN */
+.btn-registro{
+    width:100%;
+    border:none;
+    background:var(--vino-principal);
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-registro:hover{
+    background:var(--vino-hover);
+}
+
+/* ENLACE A LOGIN */
+.registro-links{
+    margin-top:25px;
+    text-align:center;
+}
+
+.registro-links p{
+    color:#555;
+}
+
+.registro-links a{
+    color:var(--vino-principal);
+    font-weight:600;
+}
+
+.registro-links a:hover{
+    color:var(--dorado-principal);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .registro-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .registro-info{
+        text-align:center;
+    }
+
+    .registro-security-list{
+        max-width:600px;
+        margin:auto;
+    }
+}
+
+@media(max-width:768px){
+    .registro-page{
+        padding:50px 15px;
+    }
+
+    .registro-info h1{
+        font-size:2.2rem;
+    }
+
+    .registro-card{
+        padding:30px;
+    }
+
+    .registro-security-list div{
+        align-items:flex-start;
+        text-align:left;
+    }
+}
+
+/* MENSAJES DEL BACKEND */
+
+.form-backend-message{
+    padding:14px 16px;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.form-backend-message[data-tipo="success"]{
+    background:#edf7ed;
+    color:#1f6f3a;
+    border:1px solid #b7dfb9;
+}
+
+.form-backend-message[data-tipo="error"]{
+    background:#fff1f0;
+    color:#b42318;
+    border:1px solid #ffccc7;
+}
+
+.form-backend-message[data-tipo="info"]{
+    background:#f6f7fb;
+    color:#4b5563;
+    border:1px solid #d9dde8;
+}

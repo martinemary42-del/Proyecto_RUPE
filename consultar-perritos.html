@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Perritos | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/consultar-perritos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html" class="active">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="perrito-banner">
+
+    <i class="fas fa-dog"></i>
+
+    <p>
+        Consulta y administra los perritos registrados en tu cuenta RUPE.
+    </p>
+
+</section>
+
+<!-- =====================================================
+CONSULTA DE PERRITOS
+===================================================== -->
+
+<!-- Contenido conectado al backend mediante API/base de datos. -->
+<main data-source="api" class="perrito-page">
+
+    <section class="perrito-wrapper">
+
+        <!-- PANEL INFORMATIVO -->
+
+        <div class="perrito-info">
+
+            <span class="perrito-badge">
+                Gestión de perritos
+            </span>
+
+            <h1>
+                Mis perritos registrados
+            </h1>
+
+            <p>
+                En esta sección podrás consultar los perritos dados de alta,
+                revisar su información, editar sus datos, reportar extravío
+                o aplicar una baja lógica cuando sea necesario.
+            </p>
+
+            <div class="perrito-list">
+
+                <div>
+                    <i class="fas fa-magnifying-glass"></i>
+                    <span>Busca rápidamente por nombre o estatus del perrito.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-pen-to-square"></i>
+                    <span>Edita datos generales antes de generar un reporte de extravío.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-shield-halved"></i>
+                    <span>La baja lógica conserva el registro para mantener trazabilidad.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TARJETA DE CONSULTA -->
+
+        <div class="perrito-card">
+
+            <div class="perrito-card-header">
+
+                <h2>Consultar perritos</h2>
+
+                <p>Filtra, revisa y administra tus registros.</p>
+
+            </div>
+
+            <!-- FILTROS -->
+
+            <form class="consulta-form" onsubmit="return false;">
+
+                <h3 class="form-section-title">Filtros de búsqueda</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="buscarNombre">Nombre del perrito</label>
+
+                        <input
+                            type="text"
+                            id="buscarNombre"
+                            placeholder="Ej. Max, Luna, Rocky">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="filtroEstatus">Estatus</label>
+
+                        <select id="filtroEstatus">
+                            <option value="">Todos</option>
+                            <option value="registrado">Registrado</option>
+                            <option value="extraviado">Extraviado</option>
+                            <option value="recuperado">Recuperado</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="btn-limpiar" onclick="limpiarFiltros()">
+                    <i class="fas fa-broom"></i>
+                    Limpiar filtros
+                </button>
+
+            </form>
+
+            <!-- LISTADO DE PERRITOS -->
+
+            <h3 class="form-section-title">Listado de perritos</h3>
+
+            <section class="lista-perritos" id="listaPerritos">
+
+                <p class="perrito-cargando">Cargando perritos registrados...</p>
+
+            </section>
+
+            <!-- SIN RESULTADOS -->
+
+            <div class="sin-resultados" id="sinResultados">
+
+                <i class="fas fa-circle-info"></i>
+
+                <h3>No se encontraron perritos</h3>
+
+                <p>
+                    Intenta modificar los filtros de búsqueda o registra un nuevo perrito.
+                </p>
+
+                <a href="registrar-perrito.html" class="btn-registrar">
+                    Registrar perrito
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+                Registro Único de Perritos Extraviados.
+            </p>
+
+            <p>
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="consultar-perritos.html">Mis Perritos</a>
+                </li>
+
+                <li>
+                    <a href="reporte-extravio.html">Reportar Extravío</a>
+                </li>
+
+                <li>
+                    <a href="mis-avistamientos.html">Avistamientos</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+                    <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+                </li>
+
+                <li>
+                    <a href="termino-uso.html">Términos de Uso</a>
+                </li>
+
+                <li>
+                    <a href="politica-seguridad.html">Política de Seguridad</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+                Universidad Abierta y a Distancia de México.
+            </p>
+
+            <p>
+                Ingeniería en Desarrollo de Software.
+            </p>
+
+            <p>
+                Versión 1.0
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 RUPE. Todos los derechos reservados.
+        </p>
+
+        <p>
+            Sistema desarrollado con fines académicos y de investigación.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/feedback.js"></script>
+    <script src="assets/js/consultar-perritos.js"></script>
+</body>
+</html>

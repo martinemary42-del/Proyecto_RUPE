@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Unico de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard-admin.html">Panel</a>
+            <a href="admin-usuarios.html">Usuarios</a>
+            <a href="admin-reportes.html">Reportes</a>
+            <a href="admin-catalogos.html">Catalogos</a>
+            <a href="admin-estadisticas.html">Estadisticas</a>
+            <a href="admin-soporte.html" class="active">Soporte</a>
+            <a href="admin-bitacora.html">Bitacora</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesion</a>
+        </nav>
+    </div>
+</header>
+
+<main class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Soporte y contacto</h1>
+                <p>Consulta mensajes enviados desde contacto publico y registra la respuesta o accion administrativa.</p>
+            </div>
+            <div class="module-actions">
+                <button type="button" class="module-btn secondary" id="exportarSoporteCsv">
+                    <i class="fa-solid fa-file-csv"></i> CSV
+                </button>
+                <button type="button" class="module-btn" id="exportarSoporteExcel">
+                    <i class="fa-solid fa-file-excel"></i> Excel
+                </button>
+            </div>
+        </div>
+
+        <section class="module-panel">
+            <div class="module-toolbar">
+                <div class="module-field">
+                    <label for="buscarSoporteAdmin">Buscar mensaje</label>
+                    <input type="search" id="buscarSoporteAdmin" placeholder="Nombre, correo, asunto o mensaje">
+                </div>
+                <div class="module-field">
+                    <label for="filtroEstatusSoporte">Estatus</label>
+                    <select id="filtroEstatusSoporte">
+                        <option value="">Todos</option>
+                        <option value="PENDIENTE">Pendiente</option>
+                        <option value="ATENDIDO">Atendido</option>
+                    </select>
+                </div>
+                <div class="module-field">
+                    <label for="filtroAsuntoSoporte">Asunto</label>
+                    <select id="filtroAsuntoSoporte">
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+                <button type="button" class="module-btn secondary" id="limpiarFiltrosSoporte">
+                    <i class="fa-solid fa-eraser"></i> Limpiar
+                </button>
+            </div>
+
+            <p class="module-counter" id="contadorSoporteAdmin">Cargando mensajes recibidos.</p>
+
+            <div class="module-table-wrap">
+                <table class="module-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Contacto</th>
+                            <th>Asunto</th>
+                            <th>Mensaje / respuesta</th>
+                            <th>Estatus</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaSoporteAdmin">
+                        <tr><td colspan="6">Cargando mensajes...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="module-pagination" id="paginacionSoporteAdmin" hidden>
+                <button type="button" class="module-btn secondary" id="soporteAnterior">Anterior</button>
+                <span id="paginaSoporteAdmin">Pagina 1 de 1</span>
+                <button type="button" class="module-btn secondary" id="soporteSiguiente">Siguiente</button>
+            </div>
+        </section>
+    </section>
+
+    <section class="admin-modal" id="modalRespuestaSoporte" hidden>
+        <div class="admin-modal-card">
+            <div class="admin-modal-head">
+                <h2>Responder mensaje</h2>
+                <button type="button" class="admin-modal-close" id="cerrarModalRespuestaSoporte" aria-label="Cerrar">&times;</button>
+            </div>
+            <form id="formRespuestaSoporte" class="admin-catalog-form">
+                <input type="hidden" id="idMensajeRespuestaSoporte">
+                <div class="form-group">
+                    <label for="resumenMensajeSoporte">Mensaje recibido</label>
+                    <textarea id="resumenMensajeSoporte" rows="4" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="respuestaAdminSoporte">Respuesta o acción administrativa</label>
+                    <textarea id="respuestaAdminSoporte" rows="5" maxlength="500" required placeholder="Describe la respuesta enviada o la accion realizada."></textarea>
+                    <small id="contadorRespuestaSoporte" class="admin-muted">0/500 caracteres</small>
+                    <p class="admin-note">Esta respuesta queda registrada para seguimiento y trazabilidad. No debe incluir datos personales innecesarios.</p>
+                </div>
+                <button type="submit" class="module-btn">Guardar respuesta</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>RUPE</h3>
+            <p>Registro Unico de Perritos Extraviados.</p>
+            <p>Modulo administrativo para seguimiento, auditoria y mejora continua del sistema.</p>
+        </div>
+        <div class="footer-column">
+            <h3>Administracion</h3>
+            <ul>
+                <li><a href="dashboard-admin.html">Panel</a></li>
+                <li><a href="admin-soporte.html">Soporte</a></li>
+                <li><a href="admin-estadisticas.html">Estadisticas</a></li>
+                <li><a href="admin-bitacora.html">Bitacora</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Informacion Legal</h3>
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Terminos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Politica de Seguridad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Proyecto Academico</h3>
+            <p>Universidad Abierta y a Distancia de Mexico.</p>
+            <p>Ingenieria en Desarrollo de Software.</p>
+            <p>Version 1.0</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+        <p>Sistema desarrollado con fines academicos y de investigacion.</p>
+    </div>
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+<script src="assets/js/session.js"></script>
+<script>protegerPaginaPrivada("ADMINISTRADOR");</script>
+<script src="assets/js/admin-soporte.js?v=20260701-1"></script>
+</body>
+</html>

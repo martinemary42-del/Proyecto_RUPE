@@ -1,0 +1,133 @@
+/* =====================================================
+   RUPE - Contacto
+   Estilos del formulario publico de mensajes.
+===================================================== */
+
+.contacto-panel{
+    max-width:920px;
+    margin-top:24px;
+}
+
+.contacto-form{
+    display:grid;
+    gap:18px;
+    margin-top:22px;
+}
+
+.contacto-form .form-row{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+    align-items:start;
+}
+
+.contacto-form .form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-width:0;
+}
+
+.contacto-form label{
+    color:var(--vino-principal);
+    font-weight:700;
+    font-size:.92rem;
+}
+
+.contacto-form input,
+.contacto-form select,
+.contacto-form textarea{
+    width:100%;
+    border:1px solid #d8d8d8;
+    border-radius:8px;
+    padding:13px 14px;
+    font:inherit;
+    color:#222;
+    background:#fff;
+    outline:none;
+    transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.contacto-form textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+.contacto-form input:focus,
+.contacto-form select:focus,
+.contacto-form textarea:focus{
+    border-color:var(--vino-principal);
+    box-shadow:0 0 0 3px rgba(107, 13, 54, .12);
+}
+
+.contacto-form small,
+.contacto-form .optional{
+    color:#666;
+    font-weight:500;
+    font-size:.82rem;
+}
+
+.contacto-form .privacy-check{
+    display:grid;
+    grid-template-columns:18px 1fr;
+    gap:12px;
+    align-items:flex-start;
+    background:#f8f8f8;
+    border-left:4px solid var(--vino-principal);
+    border-radius:8px;
+    padding:14px 16px;
+}
+
+.contacto-form .privacy-check input{
+    width:16px;
+    height:16px;
+    margin-top:3px;
+}
+
+.contacto-form .privacy-check label{
+    color:#333;
+    font-weight:500;
+    line-height:1.55;
+}
+
+.contacto-form .turnstile-box{
+    background:#fffdf7;
+    border:1px solid rgba(174,132,37,.35);
+    border-left:4px solid var(--dorado-principal);
+    border-radius:12px;
+    padding:16px;
+}
+
+.contacto-form .turnstile-box label{
+    display:block;
+    color:var(--vino-principal);
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.contacto-form .turnstile-box small{
+    display:block;
+    margin-top:10px;
+    color:#666;
+    line-height:1.5;
+}
+
+.contacto-form .module-btn{
+    width:fit-content;
+    min-width:190px;
+    justify-self:start;
+}
+
+.contacto-card{
+    min-height:155px;
+}
+
+@media(max-width:760px){
+    .contacto-form .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .contacto-form .module-btn{
+        width:100%;
+    }
+}

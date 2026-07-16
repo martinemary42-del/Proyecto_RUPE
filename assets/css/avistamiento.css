@@ -1,0 +1,624 @@
+/* =====================================================
+   AVISTAMIENTO RUPE
+===================================================== */
+
+/* BARRA SUPERIOR */
+
+.avistamiento-banner{
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #dddddd;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555;
+
+}
+
+.avistamiento-banner i{
+
+    color:var(--vino-principal);
+
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.avistamiento-page{
+
+    background:#f7f7f7;
+
+    padding:80px 20px;
+
+}
+
+.avistamiento-wrapper{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 650px;
+
+    gap:60px;
+
+    align-items:start;
+
+}
+
+/* PANEL IZQUIERDO */
+
+.avistamiento-badge{
+
+    display:inline-block;
+
+    background:rgba(97,18,50,.10);
+
+    color:var(--vino-principal);
+
+    border:1px solid rgba(97,18,50,.15);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+}
+
+.avistamiento-info h1{
+
+    font-size:3rem;
+
+    color:var(--vino-principal);
+
+    margin-bottom:25px;
+
+}
+
+.avistamiento-info p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+/* BENEFICIOS */
+
+.avistamiento-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.avistamiento-list div{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.avistamiento-list i{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+}
+
+/* TARJETA */
+
+.avistamiento-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra-lg);
+
+    border-top:6px solid var(--vino-principal);
+
+}
+
+.avistamiento-card-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.avistamiento-card-header h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+/* FORMULARIOS */
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:var(--vino-principal);
+
+}
+
+/* FILAS */
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+/* NOTA */
+
+.form-note{
+
+    display:flex;
+
+    gap:10px;
+
+    background:#fafafa;
+
+    border-left:4px solid var(--dorado-principal);
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:25px;
+
+}
+
+.form-note i{
+
+    color:var(--dorado-principal);
+
+}
+
+/* RESGUARDO */
+
+.resguardo-box{
+
+    background:#f8f8f8;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+}
+
+.resguardo-box h3{
+
+    color:var(--vino-principal);
+
+    margin-bottom:15px;
+
+}
+
+.radio-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+/* CONTACTO */
+
+.contacto-resguardo{
+
+    background:#fafafa;
+
+    border:1px solid #ececec;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+
+}
+
+.contacto-resguardo h3{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.contacto-resguardo p{
+
+    margin-bottom:20px;
+
+    color:#666;
+
+}
+
+.avistamiento-modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(32,24,28,.55);
+
+}
+
+.avistamiento-modal{
+
+    width:min(460px, 100%);
+
+    padding:28px;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.22);
+
+    text-align:center;
+
+}
+
+.avistamiento-modal i{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:52px;
+
+    height:52px;
+
+    margin-bottom:14px;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:var(--vino-principal);
+
+    font-size:24px;
+
+}
+
+.avistamiento-modal.success i{
+
+    background:#1f8f5f;
+
+}
+
+.avistamiento-modal.warn i{
+
+    background:#b9851f;
+
+}
+
+.avistamiento-modal h2{
+
+    margin:0 0 10px;
+
+    color:var(--vino-principal);
+
+    font-size:22px;
+
+}
+
+.avistamiento-modal p{
+
+    margin:0;
+
+    color:#444;
+
+    line-height:1.55;
+
+}
+
+.avistamiento-modal button{
+
+    width:100%;
+
+    margin-top:22px;
+
+    border:0;
+
+    border-radius:6px;
+
+    padding:13px 18px;
+
+    color:#fff;
+
+    background:var(--vino-principal);
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+.avistamiento-modal button:hover{
+
+    filter:brightness(.95);
+
+}
+
+/* PRIVACIDAD */
+
+.privacy-check{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+    background:#f8f8f8;
+
+    padding:15px;
+
+    border-left:4px solid var(--vino-principal);
+
+    border-radius:8px;
+
+}
+
+.privacy-check input{
+
+    margin-top:4px;
+
+}
+
+/* BOTON */
+
+.btn-avistamiento{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-avistamiento:hover{
+
+    background:var(--vino-hover);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .avistamiento-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .avistamiento-info h1{
+
+        font-size:2.2rem;
+
+    }
+
+}
+
+/* =====================================================
+   RECOMENDACIONES DE AVISTAMIENTO
+===================================================== */
+
+.recomendaciones-box{
+    margin-top:35px;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:var(--sombra-sm);
+    border-left:6px solid var(--vino-principal);
+}
+
+.recomendaciones-box h3{
+    color:var(--vino-principal);
+    margin-bottom:20px;
+}
+
+.recomendaciones-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.recomendacion-do,
+.recomendacion-dont{
+    background:#f8f8f8;
+    padding:20px;
+    border-radius:12px;
+}
+
+.recomendacion-do h4{
+    color:#198754;
+    margin-bottom:12px;
+}
+
+.recomendacion-dont h4{
+    color:#dc3545;
+    margin-bottom:12px;
+}
+
+.recomendaciones-box ul{
+    padding-left:18px;
+}
+
+.recomendaciones-box li{
+    margin-bottom:10px;
+    color:#555;
+    line-height:1.5;
+}
+
+@media(max-width:768px){
+    .recomendaciones-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* CAPTCHA TURNSTILE */
+
+.turnstile-box{
+    background:#fffdf7;
+    border:1px solid rgba(174,132,37,.35);
+    border-left:4px solid var(--dorado-principal);
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:25px;
+}
+
+.turnstile-box label{
+    display:block;
+    color:var(--vino-principal);
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.turnstile-box small{
+    display:block;
+    margin-top:10px;
+    color:#666;
+    line-height:1.5;
+}
+
+.turnstile-local-note{
+    padding:14px;
+    border:1px dashed var(--vino-principal);
+    border-radius:10px;
+    background:#fff8ec;
+    color:var(--vino-principal);
+    font-weight:700;
+    line-height:1.45;
+}

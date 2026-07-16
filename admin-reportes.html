@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard-admin.html">Panel</a>
+            <a href="admin-usuarios.html">Usuarios</a>
+            <a href="admin-reportes.html" class="active">Reportes</a>
+            <a href="admin-catalogos.html">Catálogos</a>
+            <a href="admin-estadisticas.html">Estadísticas</a>
+            <a href="admin-soporte.html">Soporte</a>
+            <a href="admin-bitacora.html">Bitácora</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+    </div>
+</header>
+<main data-source="api" class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Reportes</h1>
+                <p>Monitoreo administrativo de reportes sin modificar datos privados del dueño.</p>
+            </div>
+            <div class="module-actions">
+                <button class="module-btn secondary" id="exportarReportesCsv">
+                    <i class="fa-solid fa-file-csv"></i> CSV
+                </button>
+                <button class="module-btn" id="exportarReportesExcel">
+                    <i class="fa-solid fa-file-excel"></i> Excel
+                </button>
+            </div>
+        </div>
+
+        <section class="module-panel">
+            <h2>Seguimiento de reportes</h2>
+            <p>Consulta folios, vigencia, ubicación y actividad general. El cierre de reportes corresponde al dueño.</p>
+
+            <form class="admin-user-filters" id="filtrosReportesAdmin">
+                <div class="form-group admin-user-search">
+                    <label for="buscarReporteAdmin">Buscar reporte</label>
+                    <input type="search" id="buscarReporteAdmin" placeholder="Folio, perrito, raza o zona">
+                </div>
+                <div class="form-group">
+                    <label for="filtroEstatusReporteAdmin">Estatus</label>
+                    <select id="filtroEstatusReporteAdmin">
+                        <option value="">Todos</option>
+                        <option value="ACTIVO">Activo</option>
+                        <option value="RECUPERADO">Recuperado</option>
+                        <option value="CERRADO">Cerrado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filtroVigenciaReporteAdmin">Vigencia</label>
+                    <select id="filtroVigenciaReporteAdmin">
+                        <option value="">Todas</option>
+                        <option value="VIGENTE">Vigente</option>
+                        <option value="POR_VENCER">Por vencer</option>
+                        <option value="PENDIENTE">Pendiente de renovación</option>
+                    </select>
+                </div>
+                <button type="button" class="module-btn secondary admin-action-btn" id="limpiarFiltrosReportes">Limpiar</button>
+            </form>
+
+            <p class="admin-user-count" id="contadorReportesAdmin">Cargando reportes...</p>
+
+            <div class="module-table-wrap">
+                <table class="module-table">
+                    <thead>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Tipo</th>
+                            <th>Perrito</th>
+                            <th>Ubicación</th>
+                            <th>Estatus</th>
+                            <th>Vigencia</th>
+                            <th>Avistamientos</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaReportesAdmin">
+                        <tr><td colspan="8">Cargando reportes desde la base de datos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="admin-pagination" id="paginacionReportesAdmin" hidden>
+                <button type="button" class="module-btn secondary admin-action-btn" id="reportesAnterior">Anterior</button>
+                <span id="paginaReportesAdmin">Página 1 de 1</span>
+                <button type="button" class="module-btn secondary admin-action-btn" id="reportesSiguiente">Siguiente</button>
+            </div>
+        </section>
+    </section>
+
+    <section class="admin-modal" id="modalReporteAdmin" hidden>
+        <div class="admin-modal-card">
+            <div class="admin-modal-head">
+                <h2>Resumen administrativo</h2>
+                <button type="button" class="admin-modal-close" id="cerrarModalReporte" aria-label="Cerrar">&times;</button>
+            </div>
+            <div id="contenidoResumenReporte"></div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("ADMINISTRADOR");</script>
+<script src="assets/js/admin-reportes.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* =====================================================
+   FOOTER INSTITUCIONAL RUPE
+===================================================== */
+
+.footer{
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    margin-top:0;
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.footer-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:70px 20px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:40px;
+}
+
+/* =====================================================
+   COLUMNAS
+===================================================== */
+
+.footer-column h3{
+
+    color:var(--dorado-principal);
+
+    margin-bottom:20px;
+
+    font-size:1.2rem;
+}
+
+.footer-column p{
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.85);
+
+    margin-bottom:10px;
+}
+
+.footer-column ul{
+
+    list-style:none;
+}
+
+.footer-column li{
+
+    margin-bottom:12px;
+}
+
+.footer-column a{
+
+    color:rgba(255,255,255,.85);
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:var(--dorado-principal);
+}
+
+/* =====================================================
+   BARRA INFERIOR
+===================================================== */
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    text-align:center;
+
+    padding:25px 20px;
+
+    background:#4e0d28;
+}
+
+.footer-bottom p{
+
+    margin:5px 0;
+
+    font-size:.9rem;
+
+    color:rgba(255,255,255,.80);
+}

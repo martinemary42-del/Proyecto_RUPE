@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Seguridad | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="perritos-extraviados.html">Perritos Extraviados</a>
+            <a href="reportar-avistamiento.html">Reportar Avistamiento</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html" class="btn-nav-login">Iniciar Sesión</a>
+            <a href="registro.html" class="btn-nav-register">Registrarse</a>
+        </nav>
+    </div>
+</header>
+<main class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Política de Seguridad</h1>
+                <p>Medidas mínimas para proteger la confidencialidad, integridad y disponibilidad de la información en RUPE.</p>
+            </div>
+        </div>
+        <section class="module-grid">
+            <article class="module-card"><i class="fas fa-user-shield"></i><h3>Acceso</h3><p>Usuarios por rol, sesiones controladas y bloqueo por intentos fallidos.</p></article>
+            <article class="module-card"><i class="fas fa-lock"></i><h3>Contraseñas</h3><p>Contraseñas robustas, almacenamiento cifrado y cambio desde perfil.</p></article>
+            <article class="module-card"><i class="fas fa-database"></i><h3>Datos</h3><p>Validación de entradas, consultas preparadas en backend y respaldos locales.</p></article>
+        </section>
+        <section class="module-panel">
+            <h2>Controles mínimos</h2>
+            <table class="module-table">
+                <tr><th>Control</th><th>Aplicación en RUPE</th></tr>
+                <tr><td>SSL/TLS</td><td>Cuando se publique en red local o servidor web, usar HTTPS aunque sea instalación interna.</td></tr>
+                <tr><td>CAPTCHA</td><td>Aplicar en registro y después de intentos fallidos de inicio de sesión.</td></tr>
+                <tr><td>Sesiones</td><td>Guardar sesión en backend, cerrar sesión y evitar exponer lógica sensible en frontend.</td></tr>
+                <tr><td>Validación</td><td>Validar en frontend para UX y repetir validación en backend antes de guardar.</td></tr>
+                <tr><td>Bitácora</td><td>Registrar altas, cambios, bloqueos, cierres de reporte, exportaciones y errores relevantes.</td></tr>
+                <tr><td>Respaldo</td><td>Respaldar base de datos y carpeta de fotografías con periodicidad definida.</td></tr>
+            </table>
+
+            <h2>Referencias de buenas prácticas</h2>
+            <p>RUPE toma como guía ISO/IEC 27001 para gestión de seguridad de la información, ISO/IEC 27002 para controles de seguridad e ISO/IEC 27701 para gestión de privacidad. Estas referencias no implican certificación, solo orientación técnica para el prototipo.</p>
+        </section>
+    </section>
+</main>
+<footer>
+    <div class="footer-bottom">
+        <p>RUPE - Prototipo académico para instalación local.</p>
+        <p><a href="aviso-privacidad.html">Aviso de Privacidad</a> | <a href="termino-uso.html">Términos de Uso</a> | <a href="politica-seguridad.html">Política de Seguridad</a></p>
+    </div>
+</footer>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+</body>
+</html>

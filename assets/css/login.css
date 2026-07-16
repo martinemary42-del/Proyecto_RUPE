@@ -1,0 +1,461 @@
+/* =====================================================
+   LOGIN RUPE
+   Estilo institucional inspirado en gob.mx
+===================================================== */
+
+/* =====================================================
+   BANNER SUPERIOR
+===================================================== */
+
+.login-banner{
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #dddddd;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555555;
+}
+
+.login-banner i{
+
+    color:var(--vino-principal);
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.login-page{
+
+    background:#f7f7f7;
+
+    min-height:calc(100vh - 120px);
+
+    padding:80px 20px;
+}
+
+.login-wrapper{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 500px;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+/* =====================================================
+   PANEL IZQUIERDO
+===================================================== */
+
+.login-info{
+
+    padding:20px;
+}
+
+.login-badge{
+
+    display:inline-block;
+
+    background:rgba(97,18,50,.10);
+
+    color:var(--vino-principal);
+
+    border:1px solid rgba(97,18,50,.15);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+}
+
+.login-info h1{
+
+    color:var(--vino-principal);
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+}
+
+.login-info p{
+
+    color:#555;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* =====================================================
+   LISTA DE SEGURIDAD
+===================================================== */
+
+.login-security-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.login-security-list div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.login-security-list i{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:var(--vino-principal);
+
+    color:white;
+}
+
+.login-security-list span{
+
+    color:#444;
+
+    font-weight:500;
+}
+
+/* =====================================================
+   TARJETA LOGIN
+===================================================== */
+
+.login-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    border-top:6px solid var(--vino-principal);
+}
+
+/* =====================================================
+   CABECERA LOGIN
+===================================================== */
+
+.login-card-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.login-card-header img{
+
+    width:90px;
+
+    margin:auto auto 20px;
+}
+
+.login-card-header h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+}
+
+.login-card-header p{
+
+    color:#666;
+}
+
+/* =====================================================
+   FORMULARIO
+===================================================== */
+
+.form-group{
+
+    margin-bottom:20px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:var(--vino-principal);
+
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+}
+
+/* =====================================================
+   CAPTCHA INFO
+===================================================== */
+
+.captcha-info{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    background:#f8f8f8;
+
+    border-left:4px solid var(--dorado-principal);
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:25px;
+}
+
+.captcha-info i{
+
+    color:var(--dorado-principal);
+}
+
+.captcha-info p{
+
+    font-size:.90rem;
+
+    color:#666;
+}
+
+/* =====================================================
+   BOTON LOGIN
+===================================================== */
+
+.btn-login{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-login:hover{
+
+    background:var(--vino-hover);
+}
+
+/* =====================================================
+   ENLACES
+===================================================== */
+
+.login-links{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.login-links a{
+
+    color:var(--vino-principal);
+
+    font-weight:500;
+}
+
+.login-links a:hover{
+
+    color:var(--dorado-principal);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+    .login-wrapper{
+
+        grid-template-columns:1fr;
+    }
+
+    .login-info{
+
+        text-align:center;
+    }
+
+    .login-security-list{
+
+        max-width:500px;
+
+        margin:auto;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .login-info h1{
+
+        font-size:2.2rem;
+    }
+
+    .login-card{
+
+        padding:30px;
+    }
+
+    .login-links{
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+}
+
+/* =====================================================
+   CAPTCHA DEMO
+===================================================== */
+
+.captcha-demo{
+
+    margin-bottom:25px;
+}
+
+.captcha-box{
+
+    border:1px solid #dcdcdc;
+
+    background:#fafafa;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.captcha-box input{
+
+    width:20px;
+
+    height:20px;
+}
+
+.captcha-demo small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:.80rem;
+}
+
+/* MENSAJES DEL BACKEND */
+
+.form-backend-message{
+    padding:14px 16px;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.form-backend-message[data-tipo="success"]{
+    background:#edf7ed;
+    color:#1f6f3a;
+    border:1px solid #b7dfb9;
+}
+
+.form-backend-message[data-tipo="error"]{
+    background:#fff1f0;
+    color:#b42318;
+    border:1px solid #ffccc7;
+}
+
+.form-backend-message[data-tipo="info"]{
+    background:#f6f7fb;
+    color:#4b5563;
+    border:1px solid #d9dde8;
+}

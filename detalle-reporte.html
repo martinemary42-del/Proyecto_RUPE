@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Reporte | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/detalle-reporte.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html" class="active">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login">Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="reporte-banner">
+
+    <i class="fas fa-file-circle-info"></i>
+
+    <p>
+        Consulta la información completa del reporte de extravío, folio RUPE, cartel y avistamientos relacionados.
+    </p>
+
+</section>
+
+<main class="reporte-page">
+
+    <section class="reporte-wrapper">
+
+        <div class="reporte-info">
+
+            <span class="reporte-badge">
+                Detalle del reporte
+            </span>
+
+            <h1>Seguimiento del extravío</h1>
+
+            <p>
+                Esta pantalla permite revisar la información del reporte,
+                confirmar datos del perrito, consultar avistamientos ciudadanos
+                y descargar el cartel con folio y código QR.
+            </p>
+
+            <div class="reporte-list">
+
+                <div>
+                    <i class="fas fa-qrcode"></i>
+                    <span>El código QR dirige al formulario ciudadano de avistamiento.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <span>Los avistamientos generan aviso por correo al propietario.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-user-shield"></i>
+                    <span>El contacto del dueño no se publica en el cartel.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="reporte-card">
+
+            <div class="reporte-card-header">
+
+                <h2 id="tituloReporte">Cargando reporte...</h2>
+
+                <p id="subtituloReporte">Consultando informacion del reporte.</p>
+
+            </div>
+
+            <section class="resumen-reporte">
+
+                <div class="foto-reporte">
+
+                    <img id="fotoPerrito" src="assets/img/logo/logo-rupe.png" alt="Fotografía del perrito reportado">
+
+                </div>
+
+                <div class="folio-box">
+
+                    <span>Folio único RUPE</span>
+
+                    <strong id="folioReporte">Cargando...</strong>
+
+                    <div class="qr-demo">
+
+                        <i class="fas fa-qrcode"></i>
+
+                    </div>
+
+                    <p>
+                        QR simulado para formulario de avistamiento.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <h3 class="form-section-title">Datos del perrito</h3>
+
+            <div class="detalle-grid">
+
+                <div class="detalle-item">
+                    <span>Nombre</span>
+                    <strong id="nombrePerrito">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Raza</span>
+                    <strong id="razaPerrito">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Color</span>
+                    <strong id="colorPerrito">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Tamaño</span>
+                    <strong id="tamanoPerrito">Cargando...</strong>
+                </div>
+
+            </div>
+
+            <h3 class="form-section-title">Información del extravío</h3>
+
+            <div class="detalle-grid">
+
+                <div class="detalle-item">
+                    <span>Fecha de extravío</span>
+                    <strong id="fechaExtravio">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Estatus</span>
+                    <strong id="estatusReporte">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Fecha de recuperación</span>
+                    <strong id="fechaRecuperacion">Sin cerrar</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Estado</span>
+                    <strong id="estadoReporte">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Municipio / Alcaldía</span>
+                    <strong id="municipioReporte">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Colonia</span>
+                    <strong id="coloniaReporte">Cargando...</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Código postal</span>
+                    <strong id="cpReporte">Cargando...</strong>
+                </div>
+
+            </div>
+
+            <div class="detalle-bloque">
+
+                <span>Referencias del lugar</span>
+
+                <p id="referenciasReporte">
+                    Cargando informacion...
+                </p>
+
+            </div>
+
+            <div class="detalle-bloque">
+
+                <span>Descripción del reporte</span>
+
+                <p id="descripcionReporte">
+                    Cargando informacion...
+                </p>
+
+            </div>
+
+            <h3 class="form-section-title">Avistamientos relacionados</h3>
+
+            <div class="avistamiento-lista">
+
+                <div class="avistamiento-item">
+
+                    <i class="fas fa-location-dot"></i>
+
+                    <div>
+                        <strong>Avistamiento ciudadano</strong>
+                        <p>18/06/2026 · Colonia Del Carmen · Sin resguardo.</p>
+                    </div>
+
+                </div>
+
+                <div class="avistamiento-item">
+
+                    <i class="fas fa-house-circle-check"></i>
+
+                    <div>
+                        <strong>Posible resguardo</strong>
+                        <p>19/06/2026 · Coyoacán · Pendiente de validación del dueño.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="detalle-aviso">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+                <p>
+                    RUPE no publica datos personales del propietario ni ofrece recompensas.
+                    Cualquier recuperación debe validarse dentro del sistema para evitar fraudes.
+                </p>
+
+            </div>
+
+            <div class="detalle-acciones">
+
+                <a href="mis-reportes.html" class="btn-secundario">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
+                </a>
+
+                <button type="button" class="btn-secundario" onclick="descargarCartel()">
+                    <i class="fas fa-file-pdf"></i>
+                    Descargar cartel
+                </button>
+
+                <a href="mis-avistamientos.html" class="btn-principal">
+                    <i class="fas fa-location-dot"></i>
+                    Ver avistamientos
+                </a>
+
+                <button type="button" class="btn-recuperado" id="btnMarcarRecuperado">
+                    <i class="fas fa-circle-check"></i>
+                    Marcar recuperado
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>Registro Único de Perritos Extraviados.</p>
+
+            <p>
+                Plataforma académica orientada a facilitar la búsqueda
+                y recuperación de perritos extraviados.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="consultar-perritos.html">Mis Perritos</a></li>
+                <li><a href="reporte-extravio.html">Reportar Extravío</a></li>
+                <li><a href="mis-avistamientos.html">Avistamientos</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Términos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Política de Seguridad</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>Universidad Abierta y a Distancia de México.</p>
+            <p>Ingeniería en Desarrollo de Software.</p>
+            <p>Versión 1.0</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+        <p>Sistema desarrollado con fines académicos y de investigación.</p>
+
+    </div>
+
+</footer>
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/feedback.js"></script>
+    <script src="assets/js/detalle-reporte.js?v=20260630-1"></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Extravío | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/reporte-extravio.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html" class="active">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="reporte-banner">
+
+    <i class="fas fa-file-circle-plus"></i>
+
+    <p>
+        Genera un reporte de extravío, folio RUPE, código QR y cartel PDF para búsqueda ciudadana.
+    </p>
+
+</section>
+
+<!-- =====================================================
+REPORTE DE EXTRAVÍO
+===================================================== -->
+
+<main class="reporte-page">
+
+    <section class="reporte-wrapper">
+
+        <!-- PANEL INFORMATIVO -->
+
+        <div class="reporte-info">
+
+            <span class="reporte-badge">
+                Reporte de extravío
+            </span>
+
+            <h1>
+                Crea un reporte para tu perrito extraviado
+            </h1>
+
+            <p>
+                Selecciona un perrito registrado, captura el lugar y fecha de extravío,
+                y genera un folio RUPE que servirá para recibir reportes ciudadanos
+                mediante código QR.
+            </p>
+
+            <div class="reporte-list">
+
+                <div>
+                    <i class="fas fa-qrcode"></i>
+                    <span>El código QR permitirá reportar avistamientos de forma rápida.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-file-pdf"></i>
+                    <span>El cartel PDF incluirá fotografía, nombre del perrito, folio y QR.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <span>RUPE es gratuito y no promueve recompensas para evitar extorsiones.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+
+        <div class="reporte-card">
+
+            <div class="reporte-card-header">
+
+                <h2>
+                    Nuevo reporte de extravío
+                </h2>
+
+                <p>
+                    Completa la información del extravío.
+                </p>
+
+            </div>
+
+            <!-- Datos que se enviarán al backend: tabla REPORTE_EXTRAVIO. -->
+            <form class="reporte-form" id="formReporteExtravio" method="post" enctype="multipart/form-data" data-api="reportes-extravio">
+
+                <h3 class="form-section-title">
+                    Perrito registrado
+                </h3>
+
+                <div class="form-group">
+
+                    <label for="id_mascota">
+                        Seleccionar perrito
+                    </label>
+
+                    
+                    <select id="id_mascota" name="id_mascota" required>
+
+                        <option value="">
+                            Selecciona un perrito registrado
+                        </option>
+
+                    </select>
+
+                    <small>
+                        Este catálogo se llenará desde la base de datos local.
+                    </small>
+
+                </div>
+
+                <h3 class="form-section-title">
+                    Datos del extravío
+                </h3>
+
+                <div class="form-group">
+
+                    <label for="tipo_reporte">
+                        Tipo de reporte
+                    </label>
+
+                    <select id="tipo_reporte" name="tipo_reporte" required>
+                        <option value="EXTRAVIO">Extravío o pérdida</option>
+                        <option value="ROBO">Robo de mascota</option>
+                    </select>
+
+                    <small>
+                        Esta clasificacion ayuda a las estadisticas del administrador sin modificar la trazabilidad del caso.
+                    </small>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="fecha_extravio">
+                        Fecha de extravío
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fecha_extravio"
+                        name="fecha_extravio"
+                        required>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_estado">
+                            Estado
+                        </label>
+
+                        <select id="id_estado" name="id_estado" required>
+
+                            <option value="">
+                                Selecciona un estado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="id_municipio">
+                            Municipio / Alcaldía
+                        </label>
+
+                        <select id="id_municipio" name="id_municipio" required>
+
+                            <option value="">
+                                Primero selecciona un estado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_colonia">
+                            Colonia
+                        </label>
+
+                        <select id="id_colonia" name="id_colonia" required>
+
+                            <option value="">
+                                Primero selecciona municipio/alcaldía
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="codigo_postal">
+                            Código postal
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cp"
+                            name="cp"
+                            placeholder="Se llenará automáticamente"
+                            readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="calle">
+                            Calle
+                        </label>
+
+                        <input
+                            type="text"
+                            id="calle"
+                            name="calle"
+                            placeholder="Ej. Av. Universidad">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="numero">
+                            Número
+                        </label>
+
+                        <input
+                            type="text"
+                            id="numero"
+                            name="numero"
+                            placeholder="Ej. 123">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="referencias">
+                        Referencias del lugar
+                    </label>
+
+                    <textarea
+                        id="referencias"
+                        name="referencias"
+                        placeholder="Ej. Cerca del parque, entre calles, frente a un negocio."
+                        required></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="descripcion_hechos">
+                        Descripción de los hechos
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        placeholder="Describe cómo ocurrió el extravío o la última vez que fue visto."
+                        required></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+    <label for="foto_cartel">
+        Fotografía de tu mascota
+    </label>
+
+    <input
+        type="file"
+        id="foto_cartel"
+        name="foto_cartel"
+        accept=".jpg,.jpeg,.png,.webp">
+
+    <small>
+        Si no seleccionas una imagen, se usará la fotografía principal registrada del perrito.
+    </small>
+
+</div>
+
+                <!-- AVISO ANTIFRAUDE -->
+
+                <div class="fraud-alert">
+
+                    <i class="fas fa-shield-halved"></i>
+
+                    <div>
+
+                        <h3>
+                            Aviso preventivo antifraude
+                        </h3>
+
+                        <p>
+                            RUPE es un sistema gratuito. No se solicitan recompensas,
+                            pagos ni depósitos por la recuperación de perritos.
+                            Evita compartir datos personales fuera de la plataforma.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div class="privacy-check">
+
+                    <input type="checkbox" id="confirmacion" required>
+
+                    <label for="confirmacion">
+                        Confirmo que la información proporcionada es correcta y acepto
+                        que el reporte sea utilizado para generar el folio, QR y cartel PDF.
+                    </label>
+
+                </div>
+
+                <button type="submit" class="btn-reporte">
+
+                    Generar reporte y folio RUPE
+
+                </button>
+
+            </form>
+
+            <!-- VISTA PREVIA -->
+
+            <!-- =====================================================
+VISTA PREVIA DINÁMICA DEL CARTEL
+===================================================== -->
+
+<div class="poster-preview">
+
+    <h3>Vista previa del cartel</h3>
+
+    <div class="poster-card">
+
+        <div class="poster-header">
+            <h2>SE BUSCA</h2>
+            <p>Registro Único de Perritos Extraviados</p>
+        </div>
+
+       <div class="poster-photo">
+
+    <img
+        id="previewFoto"
+        src=""
+        alt="Fotografía del perrito">
+
+    <div id="previewFotoPlaceholder">
+
+        <i class="fas fa-dog"></i>
+
+        <p>Fotografía del perrito</p>
+
+    </div>
+
+</div>
+
+        <h2 id="previewNombre">Nombre del perrito</h2>
+
+        <p class="poster-folio" id="previewFolio">
+            Folio: RUPE-2026-000000
+        </p>
+
+        <div class="poster-info">
+
+            <p>
+                <strong>Fecha de extravío:</strong>
+                <span id="previewFecha">Sin capturar</span>
+            </p>
+
+            <p>
+                <strong>Ubicación:</strong>
+                <span id="previewUbicacion">Sin capturar</span>
+            </p>
+
+            <p>
+                <strong>Referencias:</strong>
+                <span id="previewReferencias">Sin capturar</span>
+            </p>
+
+        </div>
+
+        <div class="poster-qr">
+
+            <i class="fas fa-qrcode"></i>
+
+            <p>Escanea para reportar avistamiento</p>
+
+        </div>
+
+        <p class="poster-alert">
+            RUPE es gratuito. No se solicitan recompensas ni pagos.
+        </p>
+
+    </div>
+
+    <a href="#" class="btn-preview" aria-disabled="true" onclick="return false;">
+        Descargar cartel PDF
+    </a>
+
+</div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/feedback.js"></script>
+    <script src="assets/js/image-compressor.js"></script>
+    <script src="assets/js/reporte-extravio.js"></script>
+</body>
+</html>

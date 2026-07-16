@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Perrito | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/registrar-perrito.css?v=20260630-1">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html" class="active">Registrar Perrito</a>
+            <a href="consultar-perritos.html" >Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="perrito-banner">
+
+    <i class="fas fa-dog"></i>
+
+    <p>
+        Registra la información principal del perrito para facilitar su identificación en caso de extravío.
+    </p>
+
+</section>
+
+<!-- =====================================================
+REGISTRO DE PERRITO
+===================================================== -->
+
+<main class="perrito-page">
+
+    <section class="perrito-wrapper">
+
+        <div class="perrito-info">
+
+            <span class="perrito-badge">
+                Registro de perrito
+            </span>
+
+            <h1>
+                Alta de perrito en RUPE
+            </h1>
+
+            <p>
+                Captura los datos generales, características físicas, condición médica,
+                ubicación habitual y fotografía principal del perrito.
+            </p>
+
+            <div class="perrito-list">
+
+                <div>
+                    <i class="fas fa-id-card"></i>
+                    <span>La información ayuda a generar reportes de extravío más completos.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-camera"></i>
+                    <span>La fotografía principal será utilizada en reportes y carteles PDF.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Los datos personales del propietario no serán publicados.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="perrito-card">
+
+            <div class="perrito-card-header">
+
+                <h2>Registrar perrito</h2>
+
+                <p>Completa la información solicitada.</p>
+
+            </div>
+
+            <!-- Datos que se enviarán al backend: tabla MASCOTA y FOTOGRAFIA. -->
+            <form class="perrito-form" id="formMascota" method="post" enctype="multipart/form-data" data-api="mascotas">
+
+                <h3 class="form-section-title">Datos generales</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="nombre">Nombre del perrito</label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ej. Max"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="sexo">Sexo</label>
+
+                        <select id="sexo" name="sexo" required>
+                            <option value="">Selecciona</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
+                            <option value="No identificado">No identificado</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_tipo_mascota">Tipo de mascota</label>
+
+                        <select id="id_tipo_mascota" name="id_tipo_mascota" required>
+                            <option value="">Selecciona</option>
+                            <option value="Perro">Perro</option>
+                        </select>
+
+                        <small>
+                            En esta versión el sistema opera únicamente con perritos.
+                        </small>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="edad">Edad aproximada</label>
+
+                        <input
+                            type="text"
+                            id="edad"
+                            name="edad"
+                            placeholder="Ej. 3 años">
+
+                    </div>
+
+                </div>
+
+                <h3 class="form-section-title">Características físicas</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_raza">Raza</label>
+
+                        <select id="id_raza" name="id_raza" required>
+                            <option value="">Selecciona</option>
+                            <option value="Criollo/Mestizo">Criollo/Mestizo</option>
+                            <option value="Labrador">Labrador</option>
+                            <option value="Chihuahua">Chihuahua</option>
+                            <option value="Pastor Alemán">Pastor Alemán</option>
+                            <option value="Poodle">Poodle</option>
+                            <option value="Schnauzer">Schnauzer</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="mezcla">Descripción de mezcla</label>
+
+                        <input
+                            type="text"
+                            id="mezcla"
+                            name="mezcla"
+                            placeholder="Ej. tipo criollo con rasgos de labrador">
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_color">Color principal</label>
+
+                        <select id="id_color" name="id_color" required>
+                            <option value="">Selecciona</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Café">Café</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Dorado">Dorado</option>
+                            <option value="Pinto/Manchado">Pinto/Manchado</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="descripcion_color">Descripción de color</label>
+
+                        <input
+                            type="text"
+                            id="descripcion_color"
+                            name="descripcion_color"
+                            placeholder="Ej. manchas blancas en pecho y patas">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="senas">Señas particulares</label>
+
+                    <textarea
+                        id="senas"
+                        name="senas"
+                        placeholder="Ej. cicatriz, mancha distintiva, oreja doblada, cola corta."
+                        required></textarea>
+
+                </div>
+
+                <h3 class="form-section-title">Salud e identificación</h3>
+
+                <div class="form-group">
+
+                    <label for="condicion_medica">Condición médica</label>
+
+                    <textarea
+                        id="condicion_medica"
+                        name="condicion_medica"
+                        placeholder="Ej. requiere medicamento, alergias, enfermedad, cuidado especial."></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="collar_placa">Collar o placa</label>
+
+                    <select id="collar_placa" name="collar_placa" required>
+                        <option value="">Selecciona</option>
+                        <option value="Con collar y placa">Con collar y placa</option>
+                        <option value="Con collar sin placa">Con collar sin placa</option>
+                        <option value="Sin collar">Sin collar</option>
+                        <option value="No se sabe">No se sabe</option>
+                    </select>
+
+                </div>
+
+                <h3 class="form-section-title">Ubicación habitual</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_estado">Estado</label>
+
+                        <select id="id_estado" name="id_estado" required>
+                            <option value="">Selecciona un estado</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="id_municipio">Municipio / Alcaldía</label>
+
+                        <select id="id_municipio" name="id_municipio" required>
+                            <option value="">Primero selecciona un estado</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="id_colonia">Colonia</label>
+
+                        <select id="id_colonia" name="id_colonia" required>
+                            <option value="">Primero selecciona municipio/alcaldía</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="codigo_postal">Código postal</label>
+
+                        <input
+                            type="text"
+                            id="cp"
+                            name="cp"
+                            placeholder="Se llenará automáticamente"
+                            readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="calle">Calle</label>
+
+                        <input
+                            type="text"
+                            id="calle"
+                            name="calle"
+                            placeholder="Ej. Av. Universidad">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="numero">Número</label>
+
+                        <input
+                            type="text"
+                            id="numero"
+                            name="numero"
+                            placeholder="Ej. 123">
+
+                    </div>
+
+                </div>
+
+                <h3 class="form-section-title">Fotografía</h3>
+
+                <div class="form-group">
+
+                    <label for="foto_principal">Fotografía principal</label>
+
+                    <input
+                        type="file"
+                        id="foto_principal"
+                        name="foto_principal"
+                        accept=".jpg,.jpeg,.png,.webp"
+                        required>
+
+                    <small>
+                        Formatos permitidos: JPG, PNG o WebP. La imagen se optimiza automáticamente. Esta imagen se utilizará en reportes y carteles.
+                    </small>
+
+                </div>
+
+                <div class="privacy-check">
+
+                    <input type="checkbox" id="confirmacion" required>
+
+                    <label for="confirmacion">
+                        Confirmo que la información registrada es correcta y autorizo su uso para fines de localización y recuperación del perrito.
+                    </label>
+
+                </div>
+
+                <button type="submit" class="btn-perrito">
+
+                    Guardar perrito
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/feedback.js"></script>
+    <script src="assets/js/registrar-perrito.js?v=20260701-2"></script>
+    <script src="assets/js/image-compressor.js"></script>
+</body>
+</html>
+

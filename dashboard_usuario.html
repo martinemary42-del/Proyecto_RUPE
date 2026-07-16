@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Usuario | RUPE</title>
+
+    <!-- CSS globales -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Tipografía e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html" class="active">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="dashboard-banner">
+
+    <i class="fas fa-user-shield"></i>
+
+    <p>
+        Panel del propietario para administrar perritos registrados, reportes de extravío y avistamientos recibidos.
+    </p>
+
+</section>
+
+<!-- =====================================================
+DASHBOARD
+===================================================== -->
+
+<!-- Contenido conectado al backend mediante API/base de datos. -->
+<main data-source="api" class="dashboard-page">
+
+    <section class="dashboard-hero">
+
+        <div>
+
+            <span class="dashboard-badge">
+                Panel de usuario
+            </span>
+
+            <h1>
+                Bienvenido, <span data-user-name>Usuario</span>
+            </h1>
+
+            <p>
+                Desde este panel puedes registrar perritos, generar reportes de extravío,
+                consultar avistamientos ciudadanos y dar seguimiento a tus casos activos.
+            </p>
+
+        </div>
+
+        <a href="registrar-perrito.html" class="btn-dashboard-primary">
+
+            <i class="fas fa-dog"></i>
+            Registrar Perrito
+
+        </a>
+
+    </section>
+
+    <!-- RESUMEN -->
+
+    <section class="dashboard-stats">
+
+        <div class="dashboard-stat-card">
+
+            <i class="fas fa-dog"></i>
+
+            <h3 data-dashboard-stat="perritos">0</h3>
+
+            <p>Perritos Registrados</p>
+
+        </div>
+
+        <div class="dashboard-stat-card">
+
+            <i class="fas fa-bullhorn"></i>
+
+            <h3 data-dashboard-stat="reportesActivos">0</h3>
+
+            <p>Reporte Activo</p>
+
+        </div>
+
+        <div class="dashboard-stat-card">
+
+            <i class="fas fa-location-dot"></i>
+
+            <h3 data-dashboard-stat="avistamientos">0</h3>
+
+            <p>Avistamientos Recibidos</p>
+
+        </div>
+
+        <div class="dashboard-stat-card">
+
+            <i class="fas fa-house"></i>
+
+            <h3 data-dashboard-stat="recuperados">0</h3>
+
+            <p>Perritos Recuperados</p>
+
+        </div>
+
+    </section>
+
+    <!-- ACCESOS RÁPIDOS -->
+
+    <section class="quick-actions">
+
+        <h2>
+            Guia de reportes
+        </h2>
+
+        <div class="quick-guide">
+            <article class="quick-guide-step">
+                <span>1</span>
+                <h3>Registrar perrito</h3>
+                <p>Captura datos, rasgos y fotografía de tu mascota.</p>
+            </article>
+
+            <article class="quick-guide-step">
+                <span>2</span>
+                <h3>Mis perritos</h3>
+                <p>Revisa tus mascotas y elige una para reportar.</p>
+            </article>
+
+            <article class="quick-guide-step">
+                <span>3</span>
+                <h3>Reportar extravío o robo</h3>
+                <p>Genera folio RUPE, QR y seguimiento del caso.</p>
+            </article>
+
+            <article class="quick-guide-step">
+                <span>4</span>
+                <h3>Revisar avisos</h3>
+                <p>Consulta avistamientos, notificaciones y cierre por recuperación.</p>
+            </article>
+        </div>
+
+        <h2>
+            Accesos rápidos
+        </h2>
+
+        <div class="quick-grid">            <a href="registrar-perrito.html" class="quick-card">
+
+                <i class="fas fa-dog"></i>
+
+                <h3>Registrar Perrito</h3>
+
+                <p>Agrega la informacion basica y fotografias del perrito.</p>
+
+            </a>
+
+
+            <a href="consultar-perritos.html" class="quick-card">
+
+                <i class="fas fa-plus"></i>
+
+                <h3>Mis Perritos</h3>
+
+                <p>Consulta, registra o edita tus mascotas.</p>
+
+            </a>
+
+            <a href="reporte-extravio.html" class="quick-card">
+
+                <i class="fas fa-file-circle-plus"></i>
+
+                <h3>Reportar Extravío</h3>
+
+                <p>Genera un folio RUPE, código QR y cartel PDF.</p>
+
+            </a>
+
+            <a href="mis-reportes.html" class="quick-card">
+
+                <i class="fas fa-folder-open"></i>
+
+                <h3>Mis Reportes</h3>
+
+                <p>Consulta reportes activos, cerrados y recuperados.</p>
+
+            </a>
+
+            <a href="mis-avistamientos.html" class="quick-card">
+
+                <i class="fas fa-map-location-dot"></i>
+
+                <h3>Avistamientos</h3>
+
+                <p>Revisa reportes ciudadanos relacionados con tus casos.</p>
+
+            </a>
+
+            
+            <a href="notificaciones.html" class="quick-card">
+
+                <i class="fas fa-envelope"></i>
+
+                <h3>Notificaciones</h3>
+
+                <p>Consulta avisos enviados por correo electrónico.</p>
+
+            </a>
+
+            <a href="perfil.html" class="quick-card">
+
+                <i class="fas fa-user-gear"></i>
+
+                <h3>Mi Perfil</h3>
+
+                <p>Actualiza tus datos personales y contraseña.</p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- REPORTES RECIENTES -->
+
+    <section class="recent-panel">
+
+        <h2>
+            Actividad reciente
+        </h2>
+
+        <div class="recent-table" data-dashboard-recent>
+            <div class="recent-row recent-head">
+                <span>Folio</span>
+                <span>Perrito</span>
+                <span>Estado</span>
+                <span>Última actualización</span>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script src="assets/js/feedback.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/dashboard-usuario.js"></script>
+</body>
+</html>
+
+
+
+

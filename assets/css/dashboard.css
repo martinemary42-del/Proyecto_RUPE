@@ -1,0 +1,585 @@
+﻿/* =====================================================
+   DASHBOARD RUPE
+===================================================== */
+
+/* BARRA SUPERIOR */
+
+.dashboard-banner{
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #dddddd;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555;
+
+}
+
+.dashboard-banner i{
+
+    color:var(--vino-principal);
+
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.dashboard-page{
+
+    background:#f7f7f7;
+
+    padding:60px 20px;
+
+}
+
+/* =====================================================
+   HERO DASHBOARD
+===================================================== */
+
+.dashboard-hero{
+
+    max-width:1400px;
+
+    margin:auto auto 40px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    box-shadow:var(--sombra-md);
+
+    border-left:6px solid var(--vino-principal);
+
+}
+
+.dashboard-badge{
+
+    display:inline-block;
+
+    background:rgba(97,18,50,.10);
+
+    color:var(--vino-principal);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+
+}
+
+.dashboard-hero h1{
+
+    color:var(--vino-principal);
+
+    margin-bottom:15px;
+
+    font-size:2.5rem;
+
+}
+
+.dashboard-hero p{
+
+    color:#555;
+
+    max-width:700px;
+
+    line-height:1.8;
+
+}
+
+/* =====================================================
+   BOTON PRINCIPAL
+===================================================== */
+
+.btn-dashboard-primary{
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    padding:16px 28px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.btn-dashboard-primary:hover{
+
+    background:var(--vino-hover);
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================================
+   ESTADISTICAS
+===================================================== */
+
+.dashboard-stats{
+
+    max-width:1400px;
+
+    margin:auto auto 50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.dashboard-stat-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:var(--sombra-sm);
+
+    transition:.3s;
+
+}
+
+.dashboard-stat-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.dashboard-stat-card i{
+
+    font-size:2rem;
+
+    color:var(--vino-principal);
+
+    margin-bottom:15px;
+
+}
+
+.dashboard-stat-card h3{
+
+    font-size:2.2rem;
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.dashboard-stat-card p{
+
+    color:#666;
+
+}
+
+/* =====================================================
+   ACCESOS RAPIDOS
+===================================================== */
+
+.quick-actions{
+
+    max-width:1400px;
+
+    margin:auto auto 50px;
+
+}
+
+.quick-actions h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:25px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.quick-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    box-shadow:var(--sombra-sm);
+
+    transition:.3s;
+
+    border-top:5px solid var(--vino-principal);
+
+}
+
+.quick-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.quick-card i{
+
+    font-size:2rem;
+
+    color:var(--vino-principal);
+
+    margin-bottom:15px;
+
+}
+
+.quick-card h3{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.quick-card p{
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+
+/* =====================================================
+   ACTIVIDAD RECIENTE
+===================================================== */
+
+.recent-panel{
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+.recent-panel h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:25px;
+
+}
+
+.recent-table{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--sombra-sm);
+
+}
+
+.recent-row{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr 2fr;
+
+    padding:18px 25px;
+
+    border-bottom:1px solid #eeeeee;
+
+    align-items:center;
+
+}
+
+.recent-head{
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+.status.active{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+.status.recovered{
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+}
+
+.status.review{
+
+    background:#cfe2ff;
+
+    color:#084298;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .dashboard-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard-hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .dashboard-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .recent-row{
+
+        grid-template-columns:1fr;
+
+        gap:10px;
+
+    }
+
+}
+
+/* =====================================================
+   ALERTA DE AVISTAMIENTOS
+===================================================== */
+
+.dashboard-alert-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.dashboard-alert-box{
+    width:min(460px,100%);
+    background:white;
+    border-radius:18px;
+    padding:34px;
+    text-align:center;
+    box-shadow:var(--sombra-lg);
+    border-top:6px solid var(--vino-principal);
+}
+
+.dashboard-alert-box i{
+    color:var(--vino-principal);
+    font-size:2.4rem;
+    margin-bottom:14px;
+}
+
+.dashboard-alert-box h2{
+    color:var(--vino-principal);
+    margin-bottom:12px;
+}
+
+.dashboard-alert-box p{
+    color:#555;
+    line-height:1.6;
+    margin-bottom:24px;
+}
+
+.dashboard-alert-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.dashboard-alert-actions button,
+.dashboard-alert-actions a{
+    border:none;
+    border-radius:10px;
+    padding:13px 14px;
+    font-weight:700;
+    font-family:'Montserrat', sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.dashboard-alert-actions button{
+    background:#f1f1f1;
+    color:#444;
+}
+
+.dashboard-alert-actions a{
+    background:var(--vino-principal);
+    color:white;
+}
+
+.quick-guide {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin: 20px 0 34px;
+    padding-top: 10px;
+}
+
+.quick-guide::before {
+    content: "";
+    position: absolute;
+    top: 33px;
+    left: calc(12.5% + 24px);
+    right: calc(12.5% + 24px);
+    height: 3px;
+    background: linear-gradient(90deg, var(--vino-principal), var(--dorado));
+    border-radius: 999px;
+}
+
+.quick-guide-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.quick-guide-step span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    background: var(--vino-principal);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    box-shadow: 0 0 0 7px #fff, var(--sombra-sm);
+}
+
+.quick-guide-step h3 {
+    margin: 0 0 8px;
+    color: var(--vino-principal);
+    font-size: 1rem;
+}
+
+.quick-guide-step p {
+    max-width: 230px;
+    margin: 0 auto;
+    color: #4a4a4a;
+    font-size: .92rem;
+    line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+    .quick-guide {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 28px;
+    }
+
+    .quick-guide::before {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .quick-guide {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,754 @@
+/* =====================================================
+   REPORTE DE EXTRAVÍO - RUPE
+===================================================== */
+
+/* BARRA SUPERIOR */
+
+.reporte-banner{
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #dddddd;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555;
+
+}
+
+.reporte-banner i{
+
+    color:var(--vino-principal);
+
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.reporte-page{
+
+    background:#f7f7f7;
+
+    padding:80px 20px;
+
+}
+
+.reporte-wrapper{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 720px;
+
+    gap:60px;
+
+    align-items:start;
+
+}
+
+/* =====================================================
+   PANEL INFORMATIVO
+===================================================== */
+
+.reporte-badge{
+
+    display:inline-block;
+
+    background:rgba(97,18,50,.10);
+
+    color:var(--vino-principal);
+
+    border:1px solid rgba(97,18,50,.15);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+.reporte-info h1{
+
+    color:var(--vino-principal);
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+}
+
+.reporte-info p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.reporte-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.reporte-list div{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.reporte-list i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+}
+
+/* =====================================================
+   TARJETA FORMULARIO
+===================================================== */
+
+.reporte-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:var(--sombra-lg);
+
+    border-top:6px solid var(--vino-principal);
+
+}
+
+.reporte-card-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.reporte-card-header h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.reporte-card-header p{
+
+    color:#666;
+
+}
+
+/* =====================================================
+   TITULOS DE SECCION
+===================================================== */
+
+.form-section-title{
+
+    color:var(--vino-principal);
+
+    margin-top:35px;
+
+    margin-bottom:20px;
+
+    padding-bottom:10px;
+
+    border-bottom:2px solid #eeeeee;
+
+}
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:var(--vino-principal);
+
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+
+}
+
+.form-group small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:.85rem;
+
+}
+
+/* =====================================================
+   FILAS
+===================================================== */
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+/* =====================================================
+   AVISO ANTIFRAUDE
+===================================================== */
+
+.fraud-alert{
+
+    background:#fff8e6;
+
+    border-left:5px solid var(--dorado-principal);
+
+    padding:20px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    margin-bottom:25px;
+
+}
+
+.fraud-alert i{
+
+    color:var(--dorado-principal);
+
+    font-size:1.5rem;
+
+    margin-top:5px;
+
+}
+
+.fraud-alert h3{
+
+    color:var(--vino-principal);
+
+    margin-bottom:8px;
+
+}
+
+.fraud-alert ul{
+
+    margin:10px 0 0 18px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+.fraud-alert li{
+
+    margin-bottom:6px;
+
+}
+
+/* =====================================================
+   PRIVACIDAD
+===================================================== */
+
+.privacy-check{
+
+    display:flex;
+
+    gap:12px;
+
+    background:#f8f8f8;
+
+    border-left:4px solid var(--vino-principal);
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-top:20px;
+
+    margin-bottom:25px;
+
+}
+
+.privacy-check input{
+
+    margin-top:4px;
+
+}
+
+/* =====================================================
+   BOTON PRINCIPAL
+===================================================== */
+
+.btn-reporte{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-reporte:hover{
+
+    background:var(--vino-hover);
+
+}
+
+/* =====================================================
+   VISTA PREVIA
+===================================================== */
+
+.preview-card{
+
+    margin-top:40px;
+
+    background:#fafafa;
+
+    border:1px solid #e5e5e5;
+
+    border-radius:15px;
+
+    padding:25px;
+
+}
+
+.preview-card h3{
+
+    color:var(--vino-principal);
+
+    margin-bottom:20px;
+
+}
+
+.preview-content{
+
+    text-align:center;
+
+}
+
+.preview-folio{
+
+    margin-bottom:20px;
+
+}
+
+.preview-folio span{
+
+    display:block;
+
+    color:#777;
+
+}
+
+.preview-folio strong{
+
+    color:var(--vino-principal);
+
+    font-size:1.3rem;
+
+}
+
+.preview-qr{
+
+    border:2px dashed #cccccc;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+}
+
+.preview-qr i{
+
+    font-size:4rem;
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.btn-preview{
+
+    display:inline-block;
+
+    background:var(--dorado-principal);
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.btn-preview:hover{
+
+    background:var(--dorado-hover);
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .reporte-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .reporte-info h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .reporte-card{
+
+        padding:25px;
+
+    }
+
+}
+
+/* =====================================================
+   VISTA PREVIA DINÁMICA DEL CARTEL
+===================================================== */
+
+.poster-preview{
+    margin-top:40px;
+    background:#fafafa;
+    border:1px solid #e5e5e5;
+    border-radius:18px;
+    padding:25px;
+}
+
+.poster-preview h3{
+    color:var(--vino-principal);
+    margin-bottom:20px;
+}
+
+.poster-card{
+    background:white;
+    border:3px solid var(--vino-principal);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+    box-shadow:var(--sombra-sm);
+}
+
+.poster-header{
+    background:var(--vino-principal);
+    color:white;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-bottom:16px;
+}
+
+.poster-header h2{
+    font-size:1.45rem;
+    letter-spacing:0;
+}
+
+.poster-header p{
+    font-size:.8rem;
+    opacity:.9;
+}
+
+.poster-photo{
+    width:min(100%, 360px);
+    aspect-ratio:1 / 1;
+    border:2px dashed #cccccc;
+    border-radius:14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 18px;
+    color:#777;
+    background:#f8f8f8;
+}
+
+.poster-photo i{
+    font-size:4rem;
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.poster-card h2{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.poster-folio{
+    color:var(--dorado-principal);
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.poster-info{
+    text-align:left;
+    background:#f8f8f8;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-bottom:16px;
+}
+
+.poster-info p{
+    margin-bottom:10px;
+    color:#555;
+}
+
+.poster-qr{
+    border:2px dashed var(--vino-principal);
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.poster-qr i{
+    font-size:4rem;
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.poster-alert{
+    background:#fff8e6;
+    border-left:4px solid var(--dorado-principal);
+    padding:12px;
+    border-radius:8px;
+    color:#555;
+    font-weight:600;
+}
+
+.btn-preview{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    background:var(--dorado-principal);
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.btn-preview:hover{
+    background:var(--dorado-hover);
+}
+
+.poster-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+    display:none;
+}
+
+#previewFotoPlaceholder{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Vista previa de imagen optimizada */
+.image-optimizer{
+    margin-top:10px;
+}
+
+.image-preview{
+    width:92px;
+    height:92px;
+    border:1px dashed #cccccc;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#fafafa;
+    color:#777;
+    font-size:.78rem;
+    text-align:center;
+}
+
+.image-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.image-status{
+    margin-top:8px;
+    font-size:.85rem;
+}
+
+.image-status.ok{
+    color:#0f7a3b;
+    font-weight:600;
+}
+
+.image-status.error{
+    color:#991b1b;
+    font-weight:600;
+}
+
+.image-status.info{
+    color:#555;
+}
+
+.poster-photo{
+    overflow:hidden;
+}
+
+.poster-photo img{
+    object-fit:cover;
+    object-position:center;
+}
+
+
+@media(max-width:768px){
+    .poster-card{
+        padding:16px;
+    }
+
+    .poster-header h2{
+        font-size:1.25rem;
+    }
+
+    .poster-photo{
+        width:100%;
+        max-width:320px;
+    }
+}

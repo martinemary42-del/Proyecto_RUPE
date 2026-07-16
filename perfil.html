@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/perfil.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html" class="active">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="perfil-banner">
+
+    <i class="fas fa-user-gear"></i>
+
+    <p>
+        Administra tus datos personales, seguridad de acceso y preferencias de notificación.
+    </p>
+
+</section>
+
+<main class="perfil-page">
+
+    <section class="perfil-wrapper">
+
+        <div class="perfil-info">
+
+            <span class="perfil-badge">
+                Mi perfil
+            </span>
+
+            <h1>
+                Información del propietario
+            </h1>
+
+            <p>
+                Mantén actualizados tus datos de contacto para que RUPE pueda enviarte avisos
+                relacionados con reportes de extravío, avistamientos y posibles resguardos.
+            </p>
+
+            <div class="perfil-list">
+
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <span>El correo se usa para notificar avistamientos y recuperación.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <span>La contraseña debe protegerse y actualizarse periódicamente.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Tus datos personales no serán publicados en carteles ni reportes públicos.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="perfil-card">
+
+            <div class="perfil-card-header">
+
+                <h2>Editar perfil</h2>
+
+                <p>Actualiza la información de tu cuenta RUPE.</p>
+
+            </div>
+
+            <!-- Datos que se enviarán al backend: actualización de USUARIO. -->
+            <form id="formPerfil" class="perfil-form" method="post" data-api="usuarios/perfil">
+
+                <h3 class="form-section-title">Datos personales</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="nombre">Nombre</label>
+
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="apellidos">Apellidos</label>
+
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="correo">Correo electrónico</label>
+
+                        <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="telefono">Teléfono</label>
+
+                        <input type="tel" id="telefono" name="telefono" placeholder="5512345678" maxlength="10" inputmode="numeric" pattern="[0-9]{10}">
+
+                    </div>
+
+                </div>
+
+                <h3 class="form-section-title">Seguridad de acceso</h3>
+
+                <div class="form-group">
+
+                    <label for="passwordActual">Contraseña actual</label>
+
+                    <input type="password" id="passwordActual" name="password_actual" placeholder="Ingresa tu contraseña actual">
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="passwordNueva">Nueva contraseña</label>
+
+                        <input type="password" id="passwordNueva" name="password_nueva" placeholder="Mínimo 8 caracteres">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="passwordConfirmar">Confirmar contraseña</label>
+
+                        <input type="password" id="passwordConfirmar" name="password_confirmar" placeholder="Repite la nueva contraseña">
+
+                    </div>
+
+                </div>
+
+                <small class="security-note">
+                    Si no deseas cambiar la contraseña, deja estos campos vacíos.
+                </small>
+
+                <h3 class="form-section-title">Preferencias de notificación</h3>
+
+                <div class="preferencias-box">
+
+                    <label>
+                        <input type="checkbox" id="notifAvistamientos" checked>
+                        Recibir correos por nuevos avistamientos.
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="notifResguardo" checked>
+                        Recibir correos por posibles resguardos.
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="notifRecuperacion" checked>
+                        Recibir correos de recuperación o cierre de reporte.
+                    </label>
+
+                </div>
+
+                <div class="privacy-check">
+
+                    <input type="checkbox" id="confirmacion" required>
+
+                    <label for="confirmacion">
+                        Confirmo que la información actualizada es correcta.
+                    </label>
+
+                </div>
+
+                <div class="perfil-acciones">
+
+                    <a href="dashboard_usuario.html" class="btn-secundario">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn-perfil">
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+            </form>
+
+            <section class="perfil-danger-zone" aria-labelledby="tituloDesactivarCuenta">
+                <div>
+                    <h3 id="tituloDesactivarCuenta">Desactivar cuenta</h3>
+                    <p>
+                        Esta opción cierra tu acceso al sistema y conserva tu historial para auditoría.
+                        Tus reportes no se eliminan de la base de datos.
+                    </p>
+                </div>
+                <button type="button" class="btn-desactivar-cuenta" id="btnDesactivarCuenta">
+                    Desactivar mi cuenta
+                </button>
+            </section>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>Registro Único de Perritos Extraviados.</p>
+
+            <p>
+                Plataforma académica orientada a facilitar la búsqueda y recuperación
+                de perritos extraviados mediante la participación ciudadana.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="consultar-perritos.html">Mis Perritos</a></li>
+                <li><a href="mis-reportes.html">Mis Reportes</a></li>
+                <li><a href="mis-avistamientos.html">Avistamientos</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Términos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Política de Seguridad</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>Universidad Abierta y a Distancia de México.</p>
+            <p>Ingeniería en Desarrollo de Software.</p>
+            <p>Versión 1.0</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+        <p>Sistema desarrollado con fines académicos y de investigación.</p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script src="assets/js/feedback.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/perfil.js"></script>
+</body>
+</html>

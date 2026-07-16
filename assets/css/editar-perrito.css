@@ -1,0 +1,457 @@
+
+/* =====================================================
+   REGISTRAR PERRITO - RUPE
+===================================================== */
+
+/* BARRA SUPERIOR */
+
+.perrito-banner{
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #dddddd;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555;
+
+}
+
+.perrito-banner i{
+
+    color:var(--vino-principal);
+
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.perrito-page{
+
+    background:#f7f7f7;
+
+    padding:80px 20px;
+
+}
+
+.perrito-wrapper{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 700px;
+
+    gap:60px;
+
+    align-items:start;
+
+}
+
+/* =====================================================
+   PANEL INFORMATIVO
+===================================================== */
+
+.perrito-badge{
+
+    display:inline-block;
+
+    background:rgba(97,18,50,.10);
+
+    color:var(--vino-principal);
+
+    border:1px solid rgba(97,18,50,.15);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+.perrito-info h1{
+
+    color:var(--vino-principal);
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+}
+
+.perrito-info p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.perrito-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.perrito-list div{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.perrito-list i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+}
+
+/* =====================================================
+   TARJETA FORMULARIO
+===================================================== */
+
+.perrito-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:var(--sombra-lg);
+
+    border-top:6px solid var(--vino-principal);
+
+}
+
+.perrito-card-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.perrito-card-header h2{
+
+    color:var(--vino-principal);
+
+    margin-bottom:10px;
+
+}
+
+.perrito-card-header p{
+
+    color:#666;
+
+}
+
+/* =====================================================
+   TITULOS DE SECCION
+===================================================== */
+
+.form-section-title{
+
+    color:var(--vino-principal);
+
+    margin-top:35px;
+
+    margin-bottom:20px;
+
+    padding-bottom:10px;
+
+    border-bottom:2px solid #eeeeee;
+
+}
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:var(--vino-principal);
+
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+
+}
+
+.form-group small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:.85rem;
+
+}
+
+/* =====================================================
+   FILAS
+===================================================== */
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+input[type="file"]{
+
+    background:#fafafa;
+
+    padding:12px;
+
+}
+
+/* =====================================================
+   PRIVACIDAD
+===================================================== */
+
+.privacy-check{
+
+    display:flex;
+
+    gap:12px;
+
+    background:#f8f8f8;
+
+    border-left:4px solid var(--vino-principal);
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-top:25px;
+
+    margin-bottom:25px;
+
+}
+
+.privacy-check input{
+
+    margin-top:4px;
+
+}
+
+/* =====================================================
+   BOTON
+===================================================== */
+
+.btn-perrito{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--vino-principal);
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-perrito:hover{
+
+    background:var(--vino-hover);
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .perrito-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .perrito-info h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .perrito-card{
+
+        padding:25px;
+
+    }
+
+}
+
+
+
+.foto-actual{
+    background:#fafafa;
+    border:1px solid #eeeeee;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.foto-actual img{
+    width:100%;
+    max-height:280px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.foto-actual p{
+    color:#666;
+    font-size:.9rem;
+}
+
+.editar-acciones{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.btn-secundario{
+    width:100%;
+    background:white;
+    color:var(--vino-principal);
+    border:1px solid var(--vino-principal);
+    padding:16px;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:600;
+    text-align:center;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-secundario:hover{
+    background:var(--vino-principal);
+    color:white;
+}
+
+@media(max-width:768px){
+
+    .editar-acciones{
+        grid-template-columns:1fr;
+    }
+
+}

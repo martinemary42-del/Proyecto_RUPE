@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Avistamiento | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/detalle-avistamiento.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                <nav class="nav-links">
+            <a href="dashboard_usuario.html">Dashboard</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html" class="active">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login">Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="avistamiento-banner">
+
+    <i class="fas fa-eye"></i>
+
+    <p>
+        Revisa la información enviada por el ciudadano antes de validar o descartar el aviso.
+    </p>
+
+</section>
+
+<main class="avistamiento-page">
+
+    <section class="avistamiento-wrapper">
+
+        <div class="avistamiento-info">
+
+            <span class="avistamiento-badge">
+                Detalle del avistamiento
+            </span>
+
+            <h1>
+                Evidencia ciudadana
+            </h1>
+
+            <p>
+                Esta pantalla permite revisar el folio relacionado, ubicación,
+                fotografía, descripción y tipo de reporte ciudadano.
+            </p>
+
+            <div class="avistamiento-list">
+
+                <div>
+                    <i class="fas fa-qrcode"></i>
+                    <span>El folio permite relacionar el aviso con un reporte activo.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-camera"></i>
+                    <span>La evidencia fotográfica ayuda a confirmar coincidencias.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-user-shield"></i>
+                    <span>Los datos del resguardante solo se liberan tras validación.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="avistamiento-card">
+
+            <div class="avistamiento-card-header">
+
+                <h2 id="tituloAvistamiento">
+                    Avistamiento RUPE-2026-0001
+                </h2>
+
+                <p id="subtituloAvistamiento">
+                    Aviso ciudadano pendiente de validación.
+                </p>
+
+            </div>
+
+            <div class="foto-avistamiento">
+
+                <img
+                    id="fotoAvistamiento"
+                    src="assets/img/perritos/Luna.jpg"
+                    alt="Fotografía del avistamiento">
+
+                <span id="estatusAvistamiento" class="estatus estatus-pendiente">
+                    Pendiente
+                </span>
+
+            </div>
+
+            <h3 class="form-section-title">Datos generales</h3>
+
+            <div class="detalle-grid">
+
+                <div class="detalle-item">
+                    <span>Folio relacionado</span>
+                    <strong id="folioAvistamiento">RUPE-2026-0001</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Perrito relacionado</span>
+                    <strong id="nombrePerrito">Luna</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Tipo de aviso</span>
+                    <strong id="tipoAvistamiento">Avistamiento ciudadano</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Fecha del avistamiento</span>
+                    <strong id="fechaAvistamiento">18/06/2026</strong>
+                </div>
+
+            </div>
+
+            <h3 class="form-section-title">Ubicación reportada</h3>
+
+            <div class="detalle-grid">
+
+                <div class="detalle-item">
+                    <span>Estado</span>
+                    <strong id="estadoAvistamiento">Ciudad de México</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Municipio / Alcaldía</span>
+                    <strong id="municipioAvistamiento">Coyoacán</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Colonia</span>
+                    <strong id="coloniaAvistamiento">Del Carmen</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Código postal</span>
+                    <strong id="cpAvistamiento">04100</strong>
+                </div>
+
+            </div>
+
+            <div class="detalle-bloque">
+
+                <span>Referencias del lugar</span>
+
+                <p id="referenciasAvistamiento">
+                    Perrita vista cerca de zona comercial, junto a una avenida principal.
+                </p>
+
+            </div>
+
+            <div class="detalle-bloque">
+
+                <span>Descripción del ciudadano</span>
+
+                <p id="descripcionAvistamiento">
+                    Perrita gris de tamaño pequeño vista caminando sola. No fue posible resguardarla.
+                </p>
+
+            </div>
+
+            <h3 class="form-section-title">Información de resguardo</h3>
+
+            <div class="detalle-grid">
+
+                <div class="detalle-item">
+                    <span>¿Tiene resguardo?</span>
+                    <strong id="resguardoAvistamiento">No</strong>
+                </div>
+
+                <div class="detalle-item">
+                    <span>Contacto liberado</span>
+                    <strong id="contactoLiberado">No aplica</strong>
+                </div>
+
+            </div>
+
+            <div class="detalle-aviso">
+
+                <i class="fas fa-shield-halved"></i>
+
+                <p>
+                    Si el aviso corresponde a tu perrito, puedes validarlo. Si no coincide,
+                    descártalo. En caso de resguardo, el contacto se libera únicamente
+                    después de confirmar la identidad del perrito.
+                </p>
+
+            </div>
+
+            <div class="detalle-acciones">
+
+                <a href="mis-avistamientos.html" class="btn-secundario">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
+                </a>
+
+                <button type="button" class="btn-descartar" onclick="descartarAvistamiento()">
+                    <i class="fas fa-xmark"></i>
+                    Descartar
+                </button>
+
+                <button type="button" class="btn-principal" onclick="validarAvistamiento()">
+                    <i class="fas fa-check"></i>
+                    Validar coincidencia
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>Registro Único de Perritos Extraviados.</p>
+
+            <p>
+                Plataforma académica orientada a facilitar la búsqueda
+                y recuperación de perritos extraviados.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="consultar-perritos.html">Mis Perritos</a></li>
+                <li><a href="mis-reportes.html">Mis Reportes</a></li>
+                <li><a href="mis-avistamientos.html">Avistamientos</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Términos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Política de Seguridad</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>Universidad Abierta y a Distancia de México.</p>
+            <p>Ingeniería en Desarrollo de Software.</p>
+            <p>Versión 1.0</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+        <p>Sistema desarrollado con fines académicos y de investigación.</p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/detalle-avistamiento.js"></script>
+
+    <script src="assets/js/feedback.js"></script>
+</body>
+</html>

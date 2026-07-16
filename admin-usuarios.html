@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard-admin.html">Panel</a>
+            <a href="admin-usuarios.html" class="active">Usuarios</a>
+            <a href="admin-reportes.html">Reportes</a>
+            <a href="admin-catalogos.html">Catálogos</a>
+            <a href="admin-estadisticas.html">Estadísticas</a>
+            <a href="admin-soporte.html">Soporte</a>
+            <a href="admin-bitacora.html">Bitácora</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+    </div>
+</header>
+<main data-source="api" class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Usuarios</h1>
+                <p>Consulta administrativa con datos mínimos para proteger la privacidad de las cuentas registradas.</p>
+            </div>
+            <div class="module-actions">
+                <button class="module-btn" id="btnNuevoAdministrador">Nuevo administrador</button>
+                <button type="button" class="module-btn secondary" id="btnExportarUsuariosExcel">
+                    <i class="fa-solid fa-file-excel"></i> Excel
+                </button>
+                <a class="module-btn secondary" href="dashboard-admin.html">Volver al panel</a>
+            </div>
+        </div>
+
+        <section class="module-panel">
+            <h2>Control de acceso</h2>
+            <p>Los correos se muestran enmascarados y no se visualizan teléfonos ni contraseñas.</p>
+
+            <form class="admin-user-filters" id="filtrosUsuariosAdmin">
+                <div class="form-group admin-user-search">
+                    <label for="buscarUsuarioAdmin">Buscar usuario</label>
+                    <input type="search" id="buscarUsuarioAdmin" placeholder="ID, correo, rol o estado">
+                </div>
+                <div class="form-group">
+                    <label for="filtroRolAdmin">Rol</label>
+                    <select id="filtroRolAdmin">
+                        <option value="">Todos</option>
+                        <option value="ADMINISTRADOR">Administrador</option>
+                        <option value="DUENO">Dueño</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filtroEstadoAdmin">Estado</label>
+                    <select id="filtroEstadoAdmin">
+                        <option value="">Todos</option>
+                        <option value="ACTIVO">Activo</option>
+                        <option value="DESACTIVADO">Desactivado</option>
+                        <option value="BLOQUEADO">Bloqueado</option>
+                    </select>
+                </div>
+                <button type="button" class="module-btn secondary admin-action-btn" id="limpiarFiltrosUsuarios">Limpiar</button>
+            </form>
+
+            <p class="admin-user-count" id="contadorUsuariosAdmin">Cargando usuarios...</p>
+
+            <div class="module-table-wrap">
+                <table class="module-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Último acceso</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuariosAdmin">
+                        <tr><td colspan="7">Cargando usuarios desde la base de datos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="admin-pagination" id="paginacionUsuariosAdmin" hidden>
+                <button type="button" class="module-btn secondary admin-action-btn" id="usuariosAnterior">Anterior</button>
+                <span id="paginaUsuariosAdmin">Página 1 de 1</span>
+                <button type="button" class="module-btn secondary admin-action-btn" id="usuariosSiguiente">Siguiente</button>
+            </div>
+        </section>
+    </section>
+    <section class="admin-modal" id="modalAdminUsuario" hidden>
+        <div class="admin-modal-card">
+            <div class="admin-modal-head">
+                <h2>Nuevo administrador</h2>
+                <button type="button" class="admin-modal-close" id="cerrarModalAdminUsuario" aria-label="Cerrar">&times;</button>
+            </div>
+            <form id="formNuevoAdministrador" class="admin-catalog-form">
+                <div class="form-group">
+                    <label for="adminNombre">Nombre completo</label>
+                    <input type="text" id="adminNombre" maxlength="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminCorreo">Correo electrónico</label>
+                    <input type="email" id="adminCorreo" maxlength="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminTelefono">Teléfono</label>
+                    <input type="text" id="adminTelefono" maxlength="10" inputmode="numeric" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Contraseña temporal</label>
+                    <input type="password" id="adminPassword" minlength="8" maxlength="40" required>
+                </div>
+                <p class="admin-note">La cuenta principal admin@rupe.local no puede desactivarse. Los administradores secundarios sí pueden activarse o desactivarse.</p>
+                <button type="submit" class="module-btn">Crear administrador</button>
+            </form>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("ADMINISTRADOR");</script>
+<script src="assets/js/admin-usuarios.js"></script>
+</body>
+</html>

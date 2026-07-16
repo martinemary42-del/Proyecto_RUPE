@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perritos extraviados | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css?v=20260629-5">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Unico de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="perritos-extraviados.html" class="active">Perritos extraviados</a>
+            <a href="reportar-avistamiento.html">Reportar avistamiento</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html" class="btn-nav-login">Ingresar</a>
+            <a href="registro.html" class="btn-nav-register">Registrarse</a>
+        </nav>
+    </div>
+</header>
+
+<main class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Perritos extraviados o robados</h1>
+                <p>Busca por folio, nombre, raza, zona o señas particulares para apoyar la recuperacion.</p>
+            </div>
+            <div class="module-actions">
+                <a class="module-btn" href="reportar-avistamiento.html">
+                    <i class="fa-solid fa-location-dot"></i> Reportar avistamiento
+                </a>
+            </div>
+        </div>
+
+        <section class="module-panel lost-search-panel">
+            <div class="lost-filters">
+                <div class="form-group">
+                    <label for="folioBusqueda">Buscar</label>
+                    <input type="search" id="folioBusqueda" placeholder="Folio, nombre o referencia">
+                </div>
+                <div class="form-group">
+                    <label for="razaBusqueda">Raza</label>
+                    <input type="search" id="razaBusqueda" placeholder="Ej. Criollo, Labrador">
+                </div>
+                <div class="form-group">
+                    <label for="senasBusqueda">Señas / color</label>
+                    <input type="search" id="senasBusqueda" placeholder="Collar, manchas, color">
+                </div>
+                <div class="form-group">
+                    <label for="sexoBusqueda">Sexo</label>
+                    <select id="sexoBusqueda">
+                        <option value="">Todos</option>
+                        <option value="MACHO">Macho</option>
+                        <option value="HEMBRA">Hembra</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zonaBusqueda">Zona</label>
+                    <input type="search" id="zonaBusqueda" placeholder="Municipio, colonia o CP">
+                </div>
+                <div class="form-group">
+                    <label for="tipoBusqueda">Tipo</label>
+                    <select id="tipoBusqueda">
+                        <option value="todos">Todos</option>
+                        <option value="extravio">Extravio</option>
+                        <option value="robo">Robo</option>
+                        <option value="avistamiento">Avistamiento sin folio</option>
+                        <option value="resguardo">Resguardo sin folio</option>
+                    </select>
+                </div>
+                <div class="lost-filter-actions">
+                    <button type="button" class="module-btn secondary" id="btnBuscarFolio">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar
+                    </button>
+                    <button type="button" class="module-btn secondary" id="btnLimpiarFiltros">
+                        <i class="fa-solid fa-eraser"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+            <p class="lost-search-help" id="textoFiltro">La busqueda se actualiza mientras escribes.</p>
+        </section>
+
+        <section class="module-panel lost-results-section" id="reportesConFolio">
+            <div class="lost-section-heading">
+                <div>
+                    <h2>Reportes formales de extravio o robo</h2>
+                    <p>Casos registrados por dueño/tutor con folio RUPE, QR y cartel PDF.</p>
+                </div>
+                <span class="status-pill">Con folio RUPE</span>
+            </div>
+            <div class="module-grid lost-dogs-grid" id="listaReportesExtraviados">
+                <article class="module-card">Cargando reportes activos...</article>
+            </div>
+            <div class="lost-pagination" id="paginacionReportes"></div>
+        </section>
+
+        <section class="module-panel lost-results-section" id="avistamientosSinFolio">
+            <div class="lost-section-heading">
+                <div>
+                    <h2>Avistamientos ciudadanos sin folio</h2>
+                    <p>Reportes publicos de ciudadanos. Sin resguardo se muestran 45 dias; con resguardo permanecen activos.</p>
+                </div>
+                <span class="status-pill warn">Sin folio RUPE</span>
+            </div>
+            <div class="lost-section-note">
+                <strong>Criterio de visualizacion:</strong> los avistamientos sin resguardo se muestran durante 45 dias; si el perrito esta en resguardo permanecen visibles mientras el aviso siga activo.
+            </div>
+            <div class="module-grid lost-dogs-grid" id="listaAvistamientosSinFolio">
+                <article class="module-card">Cargando avistamientos ciudadanos...</article>
+            </div>
+            <div class="lost-pagination" id="paginacionAvistamientos"></div>
+        </section>
+    </section>
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>Registro Único de Perritos Extraviados.</p>
+
+            <p>
+                Plataforma académica orientada a facilitar la búsqueda y recuperación
+                de perritos extraviados mediante la participación ciudadana.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="perritos-extraviados.html">Perritos Extraviados</a></li>
+                <li><a href="index.html#como-funciona">¿Cómo Funciona?</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Términos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Política de Seguridad</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>Universidad Abierta y a Distancia de México.</p>
+            <p>Ingeniería en Desarrollo de Software.</p>
+            <p>Versión 1.0</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+
+        <p>Sistema desarrollado con fines académicos y de investigación.</p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+<script src="assets/js/perritos-extraviados.js?v=20260630-1"></script>
+<script src="assets/js/visitas.js"></script>
+</body>
+</html>

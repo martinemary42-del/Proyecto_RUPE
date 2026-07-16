@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | RUPE</title>
+
+    <!-- CSS globales del sistema -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Tipografía e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>
+                    Registro Único de Perritos Extraviados
+                </p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="perritos-extraviados.html">Perritos Extraviados</a>
+            <a href="reportar-avistamiento.html">Reportar Avistamiento</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html" class="btn-nav-login">Iniciar Sesión</a>
+            <a href="registro.html" class="btn-nav-register">Registrarse</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="login-banner">
+
+    <i class="fas fa-shield-halved"></i>
+
+    <p>
+        Acceso seguro para propietarios, ciudadanos reportantes y administradores del sistema RUPE.
+    </p>
+
+</section>
+
+<!-- =====================================================
+LOGIN
+===================================================== -->
+
+<main class="login-page">
+
+    <section class="login-wrapper">
+
+        <!-- Panel informativo -->
+
+        <div class="login-info">
+
+            <span class="login-badge">
+                Seguridad y Control
+            </span>
+
+            <h1>
+                Bienvenido a RUPE
+            </h1>
+
+            <p>
+                Inicia sesión para administrar tus perritos registrados,
+                consultar reportes de extravío y dar seguimiento a posibles
+                avistamientos ciudadanos.
+            </p>
+
+            <div class="login-security-list">
+
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <span>Contraseñas protegidas con BCrypt</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-user-shield"></i>
+                    <span>Control de acceso por roles</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-ban"></i>
+                    <span>Restricción de intentos fallidos</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-shield"></i>
+                    <span>CAPTCHA después de intentos fallidos</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Tarjeta login -->
+
+        <div class="login-card">
+
+            <div class="login-card-header">
+
+                <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+                <h2>
+                    Iniciar sesión
+                </h2>
+
+                <p>
+                    Ingresa tus credenciales para continuar.
+                </p>
+
+            </div>
+
+            <!-- Autenticación local: validar credenciales en backend y crear sesión. -->
+            <form class="login-form" id="formLogin" method="post" data-api="auth/login">
+
+                <div class="form-group">
+
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="correo@ejemplo.com"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Ingresa tu contraseña"
+                        required>
+
+                </div>
+
+                <!-- CAPTCHA progresivo: se activa cuando hay varios intentos fallidos. -->
+
+                <div class="captcha-demo" id="loginCaptchaBox" style="display:none;">
+                    <div
+                        class="cf-turnstile"
+                        data-sitekey="1x00000000000000000000AA"
+                        data-theme="light"
+                        data-action="login_usuario">
+                    </div>
+                    <small>
+                        Verificación de seguridad requerida por intentos fallidos.
+                    </small>
+                </div>
+
+                <div class="captcha-info">
+
+                    <i class="fas fa-circle-info"></i>
+
+                    <p>
+                        Por seguridad, el CAPTCHA se solicitará después de tres intentos fallidos.
+                    </p>
+
+                </div>
+
+                <button type="submit" class="btn-login">
+
+                    Iniciar sesión
+
+                </button>
+
+            </form>
+
+            <div class="login-links">
+
+                <a href="recuperar-password.html">
+                    ¿Olvidaste tu contraseña?
+                </a>
+
+                <span></span>
+
+                <a href="registro.html">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/notificaciones.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html">Avistamientos</a>
+            <a href="notificaciones.html" class="active">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="notificaciones-banner">
+
+    <i class="fas fa-envelope"></i>
+
+    <p>
+        Consulta avisos del sistema relacionados con reportes, avistamientos, resguardos y recuperación.
+    </p>
+
+</section>
+
+<main class="notificaciones-page">
+
+    <section class="notificaciones-wrapper">
+
+        <div class="notificaciones-info">
+
+            <span class="notificaciones-badge">
+                Centro de notificaciones
+            </span>
+
+            <h1>
+                Avisos del sistema
+            </h1>
+
+            <p>
+                Aquí podrás consultar las notificaciones generadas por RUPE.
+                En la versión final, estos avisos también podrán enviarse mediante correo electrónico SMTP.
+            </p>
+
+            <div class="notificaciones-list">
+
+                <div>
+                    <i class="fas fa-location-dot"></i>
+                    <span>Recibe avisos cuando exista un nuevo avistamiento.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-house-circle-check"></i>
+                    <span>Consulta alertas de posible resguardo ciudadano.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-circle-check"></i>
+                    <span>Visualiza eventos de recuperación y cierre de reportes.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="notificaciones-card">
+
+            <div class="notificaciones-card-header">
+
+                <h2>Mis notificaciones</h2>
+
+                <p>Filtra y revisa los avisos generados por RUPE.</p>
+
+            </div>
+
+            <h3 class="form-section-title">Filtros</h3>
+
+            <form onsubmit="return false;">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="filtroTipo">Tipo de notificación</label>
+
+                        <select id="filtroTipo">
+                            <option value="">Todas</option>
+                            <option value="avistamiento">Avistamiento</option>
+                            <option value="resguardo">Resguardo</option>
+                            <option value="recuperacion">Recuperación</option>
+                            <option value="sistema">Sistema</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="filtroEstado">Estado</label>
+
+                        <select id="filtroEstado">
+                            <option value="">Todas</option>
+                            <option value="no-leida">No leída</option>
+                            <option value="leida">Leída</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="btn-limpiar" onclick="limpiarFiltros()">
+
+                    <i class="fas fa-broom"></i>
+
+                    Limpiar filtros
+
+                </button>
+
+            </form>
+
+            <h3 class="form-section-title">Listado</h3>
+
+            <section class="lista-notificaciones"></section>
+
+            <div class="sin-resultados" id="sinResultados">
+
+                <i class="fas fa-circle-info"></i>
+
+                <h3>No se encontraron notificaciones</h3>
+
+                <p>Intenta modificar los filtros seleccionados.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>Registro Único de Perritos Extraviados.</p>
+
+            <p>
+                Plataforma académica orientada a facilitar la búsqueda y recuperación
+                de perritos extraviados mediante la participación ciudadana.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="consultar-perritos.html">Mis Perritos</a></li>
+                <li><a href="mis-reportes.html">Mis Reportes</a></li>
+                <li><a href="mis-avistamientos.html">Avistamientos</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+                <li><a href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+                <li><a href="termino-uso.html">Términos de Uso</a></li>
+                <li><a href="politica-seguridad.html">Política de Seguridad</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>Universidad Abierta y a Distancia de México.</p>
+            <p>Ingeniería en Desarrollo de Software.</p>
+            <p>Versión 1.0</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RUPE. Todos los derechos reservados.</p>
+        <p>Sistema desarrollado con fines académicos y de investigación.</p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/session.js"></script>
+    <script src="assets/js/feedback.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/notificaciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+
+/* =====================================================
+   RUPE
+   Registro Único de Perritos Extraviados
+
+   Archivo:
+   variables.css
+
+   Descripción:
+   Variables globales de diseño.
+   Inspiradas en la identidad visual del
+   Gobierno de México.
+
+   
+   Versión: 1.0
+===================================================== */
+
+:root{
+
+    /* ==========================================
+       COLORES INSTITUCIONALES
+    ========================================== */
+
+    --vino-principal: #611232;
+    --vino-secundario: #7A1E44;
+    --vino-hover: #4C0E26;
+
+    --dorado-principal: #A57F2C;
+    --dorado-secundario: #B38B38;
+    --dorado-hover: #8D6B21;
+
+    /* ==========================================
+       COLORES NEUTROS
+    ========================================== */
+
+    --blanco: #FFFFFF;
+
+    --gris-fondo: #F8F8F8;
+    --gris-claro: #EEEEEE;
+    --gris-medio: #CCCCCC;
+    --gris-oscuro: #666666;
+
+    --negro-suave: #333333;
+
+    /* ==========================================
+       COLORES DE ESTADO
+    ========================================== */
+
+    --success: #198754;
+    --warning: #FFC107;
+    --danger: #DC3545;
+    --info: #0DCAF0;
+
+    /* ==========================================
+       TIPOGRAFÍA
+    ========================================== */
+
+    --font-principal: 'Montserrat', sans-serif;
+
+    /* ==========================================
+       TAMAÑOS DE FUENTE
+    ========================================== */
+
+    --texto-xs: 12px;
+    --texto-sm: 14px;
+    --texto-md: 16px;
+    --texto-lg: 18px;
+    --texto-xl: 22px;
+
+    --titulo-sm: 28px;
+    --titulo-md: 36px;
+    --titulo-lg: 48px;
+
+    /* ==========================================
+       ESPACIADOS
+    ========================================== */
+
+    --espacio-xs: 5px;
+    --espacio-sm: 10px;
+    --espacio-md: 20px;
+    --espacio-lg: 40px;
+    --espacio-xl: 80px;
+
+    /* ==========================================
+       BORDES
+    ========================================== */
+
+    --radio-sm: 6px;
+    --radio-md: 12px;
+    --radio-lg: 20px;
+
+    /* ==========================================
+       SOMBRAS
+    ========================================== */
+
+    --sombra-sm:
+        0 2px 6px rgba(0,0,0,.08);
+
+    --sombra-md:
+        0 4px 12px rgba(0,0,0,.10);
+
+    --sombra-lg:
+        0 8px 24px rgba(0,0,0,.12);
+
+    /* ==========================================
+       TRANSICIONES
+    ========================================== */
+
+    --transicion-rapida: .2s ease;
+
+    --transicion-normal: .3s ease;
+
+    --transicion-lenta: .5s ease;
+
+    /* ==========================================
+       CONTENEDORES
+    ========================================== */
+
+    --contenedor-maximo: 1200px;
+
+    /* ==========================================
+       HEADER
+    ========================================== */
+
+    --altura-header: 80px;
+
+    /* ==========================================
+       BOTONES
+    ========================================== */
+
+    --altura-boton: 48px;
+
+    /* ==========================================
+       Z-INDEX
+    ========================================== */
+
+    --z-header: 1000;
+    --z-modal: 2000;
+    --z-toast: 3000;
+}
+
+/* =====================================================
+   RESETEO GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =====================================================
+   CONFIGURACIÓN BASE
+===================================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:var(--font-principal);
+
+    background:var(--blanco);
+
+    color:var(--negro-suave);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   ENLACES
+===================================================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    transition:var(--transicion-normal);
+}
+
+/* =====================================================
+   LISTAS
+===================================================== */
+
+ul{
+    list-style:none;
+}
+
+/* =====================================================
+   IMÁGENES
+===================================================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+}
+
+/* =====================================================
+   CONTENEDOR GLOBAL
+===================================================== */
+
+.container{
+
+    width:90%;
+
+    max-width:var(--contenedor-maximo);
+
+    margin:auto;
+}
+.rupe-toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#333;
+    color:white;
+    padding:14px 18px;
+    border-radius:8px;
+    box-shadow:var(--sombra-lg);
+    opacity:0;
+    transform:translateY(10px);
+    transition:.3s;
+    z-index:var(--z-toast);
+    max-width:360px;
+    font-weight:600;
+}
+.rupe-toast.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+.rupe-toast.info{
+    background:var(--vino-principal);
+}
+.rupe-toast.ok{
+    background:var(--success);
+}
+.rupe-toast.warn{
+    background:#8a6500;
+}
+
+/* Vista previa y estado de compresión de fotografías. */
+.image-optimizer{
+    margin-top:12px;
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:12px;
+    align-items:center;
+}
+
+.image-preview{
+    width:120px;
+    aspect-ratio:4 / 3;
+    border:1px dashed var(--gris-medio);
+    border-radius:8px;
+    background:var(--gris-fondo);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    color:var(--gris-oscuro);
+    font-size:12px;
+    text-align:center;
+    padding:8px;
+}
+
+.image-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.image-status{
+    color:var(--gris-oscuro);
+    font-size:var(--texto-sm);
+    line-height:1.5;
+}
+
+.image-status.ok{
+    color:var(--success);
+    font-weight:600;
+}
+
+.image-status.error{
+    color:var(--danger);
+    font-weight:600;
+}
+
+@media(max-width:600px){
+    .image-optimizer{
+        grid-template-columns:1fr;
+    }
+
+    .image-preview{
+        width:100%;
+        max-width:220px;
+    }
+}

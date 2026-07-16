@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Avistamientos | RUPE</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/mis-avistamientos.css?v=20260629-1">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="dashboard_usuario.html">Inicio</a>
+            <a href="registrar-perrito.html">Registrar Perrito</a>
+            <a href="consultar-perritos.html">Mis Perritos</a>
+            <a href="mis-reportes.html">Reportes</a>
+            <a href="mis-avistamientos.html" class="active">Avistamientos</a>
+            <a href="notificaciones.html">Notificaciones</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="avistamientos-banner">
+
+    <i class="fas fa-location-dot"></i>
+
+    <p>
+        Consulta los avistamientos y posibles resguardos relacionados con tus reportes activos.
+    </p>
+
+</section>
+
+<!-- =====================================================
+MIS AVISTAMIENTOS
+===================================================== -->
+
+<!-- Contenido conectado al backend mediante API/base de datos. -->
+<main data-source="api" class="avistamientos-page">
+
+    <section class="avistamientos-wrapper">
+
+        <!-- PANEL INFORMATIVO -->
+
+        <div class="avistamientos-info">
+
+            <span class="avistamientos-badge">
+                Seguimiento ciudadano
+            </span>
+
+            <h1>
+                Avistamientos recibidos
+            </h1>
+
+            <p>
+                En esta sección podrás consultar los reportes ciudadanos asociados
+                a tus perritos extraviados, identificar posibles coincidencias y
+                validar si existe un resguardo temporal.
+            </p>
+
+            <div class="avistamientos-list">
+
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span>Revisa avistamientos enviados por ciudadanos.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-house-circle-check"></i>
+                    <span>Identifica casos donde el perrito fue resguardado temporalmente.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-shield-halved"></i>
+                    <span>El contacto del resguardante solo se libera tras validación del dueño.</span>
+                </div>
+
+            </div>
+
+            <div class="aviso-seguridad">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+                <p>
+                    RUPE no permite recompensas económicas ni intercambio directo
+                    de datos personales sin validación previa.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- TARJETA PRINCIPAL -->
+
+        <div class="avistamientos-card">
+
+            <div class="avistamientos-card-header">
+
+                <h2>
+                    Mis avistamientos
+                </h2>
+
+                <p>
+                    Filtra y consulta los avisos relacionados con tus reportes.
+                </p>
+
+            </div>
+
+            <!-- FILTROS -->
+
+            <h3 class="form-section-title">Filtros de búsqueda</h3>
+
+            <form class="avistamientos-form" onsubmit="return false;">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="buscarFolio">
+                            Folio RUPE
+                        </label>
+
+                        <input
+                            type="text"
+                            id="buscarFolio"
+                            placeholder="Ej. RUPE-2026-0001">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="filtroTipo">
+                            Tipo de aviso
+                        </label>
+
+                        <select id="filtroTipo">
+                            <option value="">Todos</option>
+                            <option value="avistamiento">Avistamiento</option>
+                            <option value="resguardo">Resguardo</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="filtroEstatus">
+                            Estatus
+                        </label>
+
+                        <select id="filtroEstatus">
+                            <option value="">Todos</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="validado">Validado por dueño</option>
+                            <option value="descartado">Descartado</option>
+                        </select>
+
+                    </div>
+                  
+                </div>
+
+                <button type="button" class="btn-limpiar" onclick="limpiarFiltros()">
+
+                    <i class="fas fa-broom"></i>
+
+                    Limpiar filtros
+
+                </button>
+
+            </form>
+
+            <!-- LISTADO -->
+
+            <h3 class="form-section-title">Listado de avistamientos</h3>
+
+            <section class="lista-avistamientos" id="listaAvistamientos">
+
+                <p class="avistamiento-cargando">Cargando avistamientos relacionados con tus reportes...</p>
+
+            </section>
+
+            <!-- PANEL DE DETALLE Y VALIDACIÓN -->
+
+<section class="panel-validacion" id="panelValidacion">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="panel-badge" id="panelTipo">
+                Avistamiento
+            </span>
+
+            <h3 id="panelTitulo">
+                Detalle del avistamiento
+            </h3>
+
+            <p id="panelSubtitulo">
+                Revisa la información antes de validar o descartar.
+            </p>
+
+        </div>
+
+        <button type="button" class="btn-cerrar-panel" onclick="cerrarPanelValidacion()">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div class="comparacion-fotos">
+
+        <div class="foto-box">
+
+            <h4>Foto registrada del perrito</h4>
+
+            <img
+                id="fotoRegistrada"
+                src="assets/img/logo/logo-rupe.png"
+                alt="Fotografía registrada del perrito">
+
+        </div>
+
+        <div class="foto-box">
+
+            <h4>Foto enviada por ciudadano</h4>
+
+            <img
+                id="fotoCiudadano"
+                src="assets/img/logo/logo-rupe.png"
+                alt="Fotografía enviada por ciudadano">
+
+        </div>
+
+    </div>
+
+    <h3 class="form-section-title">Información del aviso</h3>
+
+    <div class="detalle-grid">
+
+        <div class="detalle-item">
+
+            <span>Folio RUPE</span>
+
+            <strong id="panelFolio">Selecciona un aviso</strong>
+
+        </div>
+
+        <div class="detalle-item">
+
+            <span>Perrito</span>
+
+            <strong id="panelPerrito">Sin selección</strong>
+
+        </div>
+
+        <div class="detalle-item">
+
+            <span>Tipo</span>
+
+            <strong id="panelAviso">Avistamiento ciudadano</strong>
+
+        </div>
+
+        <div class="detalle-item">
+
+            <span>Fecha</span>
+
+            <strong id="panelFecha">Sin selección</strong>
+
+        </div>
+
+        <div class="detalle-item">
+
+            <span>Ubicación</span>
+
+            <strong id="panelUbicacion">Sin selección</strong>
+
+        </div>
+
+        <div class="detalle-item">
+
+            <span>Estado del aviso</span>
+
+            <strong id="panelEstatus">Pendiente</strong>
+
+        </div>
+
+    </div>
+
+    <div class="detalle-bloque">
+
+        <span>Descripción del ciudadano</span>
+
+        <p id="panelDescripcion">
+            Selecciona un avistamiento para revisar la descripción enviada por la ciudadanía.
+        </p>
+
+    </div>
+
+    <div class="contacto-protegido" id="contactoProtegido">
+
+        <i class="fas fa-lock"></i>
+
+        <div>
+
+            <h4>Contacto protegido</h4>
+
+            <p>
+                El contacto del resguardante solo se mostrará si el dueño confirma
+                que la evidencia corresponde a su perrito.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="form-section-title">
+        Validación del propietario
+    </div>
+
+    <div class="form-group">
+
+        <label for="decisionValidacion">
+            ¿La evidencia corresponde a tu perrito?
+        </label>
+
+        <select id="decisionValidacion">
+
+            <option value="">Selecciona una opción</option>
+
+            <option value="si">Sí, corresponde a mi perrito</option>
+
+            <option value="no">No corresponde a mi perrito</option>
+
+        </select>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="comentarioValidacion">
+            Comentario de validación
+        </label>
+
+        <textarea
+            id="comentarioValidacion"
+            placeholder="Ej. Coincide con su color, señas particulares y collar."></textarea>
+
+    </div>
+
+    <div class="privacy-check">
+
+        <input type="checkbox" id="autorizarContacto">
+
+        <label for="autorizarContacto">
+            Confirmo mi decisión y, en caso de coincidencia positiva,
+            autorizo que RUPE libere el contacto del resguardante para coordinar la recuperación.
+        </label>
+
+    </div>
+
+    <div class="panel-acciones">
+
+        <button type="button" class="btn-secundario-panel" onclick="cerrarPanelValidacion()">
+
+            <i class="fas fa-arrow-left"></i>
+
+            Volver al listado
+
+        </button>
+
+        <button type="button" class="btn-descartar" onclick="descartarDesdePanel()">
+
+            <i class="fas fa-xmark"></i>
+
+            Descartar
+
+        </button>
+
+        <button type="button" class="btn-validar" onclick="confirmarDesdePanel()">
+
+            <i class="fas fa-circle-check"></i>
+
+            Confirmar validación
+
+        </button>
+
+    </div>
+
+</section>
+
+            <!-- SIN RESULTADOS -->
+
+            <div class="sin-resultados" id="sinResultados">
+
+                <i class="fas fa-circle-info"></i>
+
+                <h3>
+                    No se encontraron avistamientos
+                </h3>
+
+                <p>
+                    Intenta modificar los filtros o revisa otro reporte activo.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+                Registro Único de Perritos Extraviados.
+            </p>
+
+            <p>
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="consultar-perritos.html">Mis Perritos</a>
+                </li>
+
+                <li>
+                    <a href="mis-reportes.html">Mis Reportes</a>
+                </li>
+
+                <li>
+                    <a href="reportar-avistamiento.html">Reportar Avistamiento</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+                    <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+                </li>
+
+                <li>
+                    <a href="termino-uso.html">Términos de Uso</a>
+                </li>
+
+                <li>
+                    <a href="politica-seguridad.html">Política de Seguridad</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+                Universidad Abierta y a Distancia de México.
+            </p>
+
+            <p>
+                Ingeniería en Desarrollo de Software.
+            </p>
+
+            <p>
+                Versión 1.0
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 RUPE. Todos los derechos reservados.
+        </p>
+
+        <p>
+            Sistema desarrollado con fines académicos y de investigación.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/mis-avistamientos.js?v=20260714-2"></script>
+
+    <script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("DUENO");</script>
+    <script src="assets/js/feedback.js"></script>
+</body>
+</html>

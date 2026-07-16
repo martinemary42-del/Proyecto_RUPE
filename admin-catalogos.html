@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogos | RUPE</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin-modulos.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+            <div class="logo-text">
+                <h1>RUPE</h1>
+                <p>Registro Único de Perritos Extraviados</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard-admin.html">Panel</a>
+            <a href="admin-usuarios.html">Usuarios</a>
+            <a href="admin-reportes.html">Reportes</a>
+            <a href="admin-catalogos.html" class="active">Catálogos</a>
+            <a href="admin-estadisticas.html">Estadísticas</a>
+            <a href="admin-soporte.html">Soporte</a>
+            <a href="admin-bitacora.html">Bitácora</a>
+            <a href="index.html" class="btn-nav-login" data-logout>Cerrar Sesión</a>
+        </nav>
+    </div>
+</header>
+<main data-source="api" class="module-page">
+    <section class="module-shell">
+        <div class="module-head">
+            <div>
+                <h1>Catálogos</h1>
+                <p>Administración controlada de listas base para reportes y mascotas. El proyecto se mantiene enfocado en perritos.</p>
+            </div>
+            <div class="module-actions">
+                <button class="module-btn" id="btnNuevoCatalogo">Nuevo registro</button>
+                <button type="button" class="module-btn secondary" id="btnExportarCatalogosExcel">Exportar Excel</button>
+            </div>
+        </div>
+
+        <div class="catalog-tabs" id="tabsCatalogosAdmin">
+            <button data-catalogo="tipo" class="active">Tipo mascota</button>
+            <button data-catalogo="raza">Raza</button>
+            <button data-catalogo="color">Color</button>
+            <button data-catalogo="estado">Estado</button>
+            <button data-catalogo="municipio">Municipio</button>
+            <button data-catalogo="colonia">Colonia</button>
+            <button data-catalogo="estatus">Estatus</button>
+            <button data-catalogo="rol">Rol</button>
+        </div>
+
+        <section class="module-panel">
+            <h2 id="tituloCatalogoAdmin">Tipo mascota</h2>
+            <p id="descripcionCatalogoAdmin">Catálogo de consulta para conservar el alcance del sistema en perritos.</p>
+
+            <form class="admin-user-filters">
+                <div class="form-group admin-user-search">
+                    <label for="buscarCatalogoAdmin">Buscar registro</label>
+                    <input type="search" id="buscarCatalogoAdmin" placeholder="Nombre, estado o dato asociado">
+                </div>
+                <div class="form-group">
+                    <label for="filtroEstadoCatalogoAdmin">Estado</label>
+                    <select id="filtroEstadoCatalogoAdmin">
+                        <option value="">Todos</option>
+                        <option value="ACTIVO">Activo</option>
+                        <option value="INACTIVO">Inactivo</option>
+                    </select>
+                </div>
+                <button type="button" class="module-btn secondary admin-action-btn" id="limpiarFiltrosCatalogos">Limpiar</button>
+            </form>
+
+            <p class="admin-user-count" id="contadorCatalogosAdmin">Cargando catálogo...</p>
+
+            <div class="module-table-wrap">
+                <table class="module-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Dato asociado</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaCatalogosAdmin">
+                        <tr><td colspan="5">Cargando registros...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <section class="admin-modal" id="modalCatalogoAdmin" hidden>
+        <div class="admin-modal-card">
+            <div class="admin-modal-head">
+                <h2 id="modalCatalogoTitulo">Nuevo registro</h2>
+                <button type="button" class="admin-modal-close" id="cerrarModalCatalogo" aria-label="Cerrar">&times;</button>
+            </div>
+            <form id="formCatalogoAdmin" class="admin-catalog-form">
+                <div class="form-group">
+                    <label for="nombreCatalogoAdmin">Nombre</label>
+                    <input type="text" id="nombreCatalogoAdmin" maxlength="120" list="sugerenciasCatalogoAdmin" required>
+                    <datalist id="sugerenciasCatalogoAdmin"></datalist>
+                    <p class="admin-note" id="ayudaNombreCatalogo">Escribe el nombre oficial, sin abreviaturas.</p>
+                </div>
+                <div class="form-group" id="grupoPadreCatalogo" hidden>
+                    <label for="padreCatalogoAdmin" id="labelPadreCatalogo">Dato asociado</label>
+                    <select id="padreCatalogoAdmin"></select>
+                </div>
+                <div class="form-group" id="grupoExtraCatalogo" hidden>
+                    <label for="extraCatalogoAdmin" id="labelExtraCatalogo">Detalle adicional</label>
+                    <input type="text" id="extraCatalogoAdmin" maxlength="80">
+                    <p class="admin-note" id="ayudaExtraCatalogo">Agrega un dato breve que ayude a ubicar este registro.</p>
+                </div>
+                <p class="admin-note" id="ayudaCatalogoAdmin">El dato asociado ayuda a ubicar cada registro dentro del sistema, por ejemplo tipo de mascota, estado, municipio o colonia.</p>
+                <p class="admin-note">Se validan duplicados ignorando mayusculas, acentos y espacios extra.</p>
+                <button type="submit" class="module-btn">Guardar registro</button>
+            </form>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script>protegerPaginaPrivada("ADMINISTRADOR");</script>
+<script src="assets/js/admin-catalogos.js?v=20260701-3"></script>
+</body>
+</html>

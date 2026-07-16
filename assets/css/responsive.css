@@ -1,0 +1,137 @@
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero h2{
+
+        font-size:30px;
+
+    }
+
+}
+@media(max-width:992px){
+
+    .hero-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .dogs-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-content h1{
+
+        font-size:2.2rem;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .stats-container{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .stats-container{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .process-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .process-container::before{
+
+        display:none;
+    }
+
+}
+
+/* =====================================================
+   BENEFICIOS RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+    .benefits-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .benefits-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* =====================================================
+   SEGURIDAD RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+    .security-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .security-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}

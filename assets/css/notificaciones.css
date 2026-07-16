@@ -1,0 +1,367 @@
+/* =====================================================
+   NOTIFICACIONES - RUPE
+===================================================== */
+
+.notificaciones-banner{
+    background:#f5f5f5;
+    border-bottom:1px solid #dddddd;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#555;
+}
+
+.notificaciones-banner i{
+    color:var(--vino-principal);
+}
+
+.notificaciones-page{
+    background:#f7f7f7;
+    padding:80px 20px;
+}
+
+.notificaciones-wrapper{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 850px;
+    gap:60px;
+    align-items:start;
+}
+
+.notificaciones-badge{
+    display:inline-block;
+    background:rgba(97,18,50,.10);
+    color:var(--vino-principal);
+    border:1px solid rgba(97,18,50,.15);
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.notificaciones-info h1{
+    color:var(--vino-principal);
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.notificaciones-info p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.notificaciones-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.notificaciones-list div{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.notificaciones-list i{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--vino-principal);
+    color:white;
+}
+
+.notificaciones-card{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:var(--sombra-lg);
+    border-top:6px solid var(--vino-principal);
+}
+
+.notificaciones-card-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.notificaciones-card-header h2{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.notificaciones-card-header p{
+    color:#666;
+}
+
+.form-section-title{
+    color:var(--vino-principal);
+    margin-top:35px;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:2px solid #eeeeee;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+.form-group select{
+    width:100%;
+    padding:14px;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+    font-family:'Montserrat', sans-serif;
+}
+
+.form-group select:focus{
+    outline:none;
+    border-color:var(--vino-principal);
+    box-shadow:0 0 0 3px rgba(97,18,50,.08);
+}
+
+.btn-limpiar{
+    border:none;
+    background:#f1f1f1;
+    color:#444;
+    padding:13px 18px;
+    border-radius:10px;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Montserrat', sans-serif;
+}
+
+.btn-limpiar:hover{
+    background:#e5e5e5;
+}
+
+.lista-notificaciones{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.notificacion-item{
+    border:1px solid #e5e5e5;
+    border-radius:16px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:80px 1fr 200px;
+    gap:20px;
+    align-items:center;
+    background:#ffffff;
+    box-shadow:0 6px 16px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.notificacion-item:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.notificacion-item.no-leida{
+    border-left:5px solid var(--vino-principal);
+}
+
+.notificacion-icono{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.7rem;
+}
+
+.icono-avistamiento{
+    background:#e7f1ff;
+    color:#084298;
+}
+
+.icono-resguardo{
+    background:#fff3cd;
+    color:#664d03;
+}
+
+.icono-recuperacion{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.icono-sistema{
+    background:#e2e3e5;
+    color:#41464b;
+}
+
+.notificacion-datos h3{
+    color:var(--vino-principal);
+    font-size:1.25rem;
+    margin:8px 0 10px;
+}
+
+.notificacion-datos p{
+    color:#555;
+    line-height:1.6;
+    margin-bottom:8px;
+}
+
+.notificacion-datos small{
+    color:#777;
+}
+
+.estatus{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:.78rem;
+    font-weight:700;
+}
+
+.estatus-no-leida{
+    background:#fff3cd;
+    color:#664d03;
+}
+
+.estatus-leida{
+    background:#e2e3e5;
+    color:#41464b;
+}
+
+.notificacion-acciones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.btn-accion,
+.btn-leida{
+    width:100%;
+    border:none;
+    padding:11px 12px;
+    border-radius:10px;
+    font-size:.88rem;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    font-family:'Montserrat', sans-serif;
+}
+
+.btn-accion{
+    background:#ffffff;
+    color:var(--vino-principal);
+    border:1px solid var(--vino-principal);
+}
+
+.btn-accion:hover{
+    background:var(--vino-principal);
+    color:white;
+}
+
+.btn-leida{
+    background:#f1f1f1;
+    color:#444;
+}
+
+.btn-leida:hover{
+    background:#e5e5e5;
+}
+
+.sin-resultados{
+    display:none;
+    margin-top:30px;
+    text-align:center;
+    background:#fafafa;
+    border:1px dashed #cccccc;
+    border-radius:16px;
+    padding:35px;
+}
+
+.sin-resultados i{
+    color:var(--vino-principal);
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.sin-resultados h3{
+    color:var(--vino-principal);
+    margin-bottom:10px;
+}
+
+.sin-resultados p{
+    color:#666;
+}
+
+@media(max-width:1200px){
+
+    .notificaciones-wrapper{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .notificacion-item{
+        grid-template-columns:1fr;
+    }
+
+    .notificacion-icono{
+        margin:auto;
+    }
+
+    .notificacion-acciones{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .notificaciones-info h1{
+        font-size:2.2rem;
+    }
+
+    .notificaciones-card{
+        padding:25px;
+    }
+
+    .notificacion-acciones{
+        grid-template-columns:1fr;
+    }
+
+}

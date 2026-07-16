@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RUPE | Registro Único de Perritos Extraviados</title>
+
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/navbar.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png"
+                 alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>
+                    Registro Único de Perritos Extraviados
+                </p>
+
+            </div>
+
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Inicio</a>
+
+<a href="perritos-extraviados.html">
+    Perritos Extraviados
+</a>
+
+<a href="reportar-avistamiento.html">
+    Reportar Avistamiento
+</a>
+
+<a href="#como-funciona">
+    ¿Cómo Funciona?
+</a>
+
+<a href="contacto.html">
+    Contacto
+</a>
+
+<a href="login.html" class="btn-nav-login">
+    Iniciar Sesión
+</a>
+
+<a href="registro.html" class="btn-nav-register">
+    Registrarse
+</a>
+
+        </nav>
+
+        <div class="menu-toggle">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="gov-banner">
+
+    <div class="gov-banner-container">
+
+        <span>
+
+            Plataforma académica orientada al registro, búsqueda y recuperación de perritos extraviados mediante la colaboración ciudadana.
+
+        </span>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+HERO INSTITUCIONAL RUPE
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                Sistema de Localización y Recuperación
+                de Perritos Extraviados
+            </span>
+
+            <h1>
+
+                Ayúdanos a reunir a los
+                perritos extraviados
+
+                <span>
+                    con sus familias
+                </span>
+
+            </h1>
+
+            <p>
+
+                Plataforma académica para facilitar el registro,
+                búsqueda y recuperación de perritos extraviados
+                mediante reportes ciudadanos, códigos QR y
+                notificaciones seguras.
+
+            </p>
+
+            <div class="hero-features">
+
+                <span>✓ Código QR único</span>
+
+                <span>✓ Reportes ciudadanos</span>
+
+                <span>✓ Notificaciones por correo</span>
+
+                <span>✓ Protección de datos</span>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="login.html" class="btn-primary btn-hero-main">
+                    Reportar extravío
+                </a>
+
+                <a href="reportar-avistamiento.html" class="btn-secondary btn-hero-alt">
+                    Reportar avistamiento
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-panel">
+
+            <h3>
+                Perritos reportados recientemente
+            </h3>
+
+            <div class="dogs-grid" id="reportesRecientes">
+
+                <div class="dog-card">
+                    <img src="assets/img/logo/logo-rupe.png" alt="Reporte RUPE">
+                    <h4>Cargando...</h4>
+                    <span>Consultando reportes</span>
+                    <div class="dog-status">Consultando</div>
+                </div>
+
+            </div>
+
+            <div class="hero-search">
+
+                <input
+                    type="text"
+                    placeholder="Buscar por folio RUPE">
+
+                <button>
+                    Buscar
+                </button>
+
+            </div>
+
+            <div class="recent-reports-actions">
+                <a href="perritos-extraviados.html" class="recent-reports-btn">Ver todos los reportes</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =====================================================
+ESTADISTICAS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="stats-header">
+
+    <h2>
+        RUPE en números
+    </h2>
+
+    <p>
+        Información estadística generada a partir de los registros,
+        reportes ciudadanos y recuperaciones realizadas en la plataforma.
+    </p>
+
+</div>
+
+    <div class="stats-container">
+
+       <div class="stat-card">
+
+    <div class="stat-icon">
+
+        <i class="fas fa-dog"></i>
+
+    </div>
+
+    <h3 data-stat="perritosRegistrados">0</h3>
+
+    <p>Perritos Registrados</p>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        <i class="fas fa-bullhorn"></i>
+
+    </div>
+
+    <h3 data-stat="reportesActivos">0</h3>
+
+    <p>Reportes Activos</p>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        <i class="fas fa-house"></i>
+
+    </div>
+
+    <h3 data-stat="perritosRecuperados">0</h3>
+
+    <p>Perritos Recuperados</p>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        <i class="fas fa-users"></i>
+
+    </div>
+
+    <h3 data-stat="avistamientosCiudadanos">0</h3>
+
+    <p>Avistamientos Ciudadanos</p>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+PROBLEMATICA
+===================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+¿Por qué existe RUPE?
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Perritos Extraviados</h3>
+
+<p>
+
+Miles de perritos se extravían cada año y muchas no logran regresar con sus familias.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Información dispersa</h3>
+
+<p>
+
+Los reportes suelen publicarse en redes sociales sin una plataforma centralizada.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Búsqueda complicada</h3>
+
+<p>
+
+La localización depende de publicaciones aisladas y grupos comunitarios.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Recuperación lenta</h3>
+
+<p>
+
+La falta de seguimiento dificulta la recuperación rápida y segura.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+COMO FUNCIONA RUPE
+===================================================== -->
+
+<section class="section section-process" id="como-funciona">
+
+    <h2 class="section-title">
+
+        ¿Cómo funciona RUPE?
+
+    </h2>
+
+    <p class="section-subtitle">
+
+        El proceso fue diseñado para facilitar la búsqueda y
+        recuperación de perritos extraviados mediante la
+        participación ciudadana y el uso de tecnología.
+
+    </p>
+
+    <div class="process-container">
+
+        <div class="process-step">
+
+            <div class="step-number">1</div>
+
+            <h3>Crear cuenta</h3>
+
+            <p>
+                Registra tus datos para acceder a las funcionalidades del sistema.
+            </p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="step-number">2</div>
+
+            <h3>Registrar perrito</h3>
+
+            <p>
+                Captura la información y fotografías de tu mascota.
+            </p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="step-number">3</div>
+
+            <h3>Reportar extravío</h3>
+
+            <p>
+                Genera un reporte y obtén un folio único con código QR.
+            </p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="step-number">4</div>
+
+            <h3>Recibir reportes</h3>
+
+            <p>
+                La comunidad podrá reportar avistamientos o resguardos.
+            </p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="step-number">5</div>
+
+            <h3>Recuperar mascota</h3>
+
+            <p>
+                Una coincidencia validada permitirá la recuperación segura.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+BENEFICIOS DEL SISTEMA RUPE
+===================================================== -->
+
+<section class="rupe-benefits">
+
+    <div class="benefits-container">
+
+        <div class="benefits-header">
+
+            <h2 class="section-title">
+
+                ¿Qué logra RUPE?
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                RUPE promueve la colaboración ciudadana para facilitar
+                la localización y recuperación de perritos extraviados,
+                fortaleciendo la protección animal mediante herramientas
+                tecnológicas accesibles.
+
+            </p>
+
+        </div>
+
+        <div class="benefits-grid">
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+
+                    🗂️
+
+                </div>
+
+                <h3>Centralización</h3>
+
+                <p>
+
+                    Toda la información se concentra en una sola
+                    plataforma para facilitar su consulta.
+
+                </p>
+
+            </div>
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+
+                    📍
+
+                </div>
+
+                <h3>Seguimiento</h3>
+
+                <p>
+
+                    Permite relacionar reportes de extravío,
+                    avistamientos y resguardos.
+
+                </p>
+
+            </div>
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+
+                    🤝
+
+                </div>
+
+                <h3>Participación Ciudadana</h3>
+
+                <p>
+
+                    Facilita la colaboración entre propietarios
+                    y ciudadanos.
+
+                </p>
+
+            </div>
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+
+                    🔒
+
+                </div>
+
+                <h3>Recuperación Segura</h3>
+
+                <p>
+
+                    La información personal permanece protegida
+                    hasta validar una coincidencia.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+SEGURIDAD Y PRIVACIDAD
+===================================================== -->
+
+<section class="security-section">
+
+    <div class="security-container">
+
+        <div class="security-header">
+
+            <h2 class="section-title">
+
+                Seguridad y Privacidad
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                RUPE incorpora mecanismos de seguridad orientados
+                a proteger la información de propietarios,
+                ciudadanos y reportes registrados dentro de la plataforma.
+
+            </p>
+
+        </div>
+
+        <div class="security-grid">
+
+            <div class="security-card">
+
+                <div class="security-icon">🛡️</div>
+
+                <h3>CAPTCHA</h3>
+
+                <p>
+                    Prevención de accesos automatizados
+                    y registros masivos.
+                </p>
+
+            </div>
+
+            <div class="security-card">
+
+                <div class="security-icon">🔑</div>
+
+                <h3>BCrypt</h3>
+
+                <p>
+                    Protección de contraseñas mediante
+                    algoritmos de cifrado seguro.
+                </p>
+
+            </div>
+
+            <div class="security-card">
+
+                <div class="security-icon">👤</div>
+
+                <h3>Roles</h3>
+
+                <p>
+                    Acceso restringido según el tipo
+                    de usuario autorizado.
+                </p>
+
+            </div>
+
+            <div class="security-card">
+
+                <div class="security-icon">🚫</div>
+
+                <h3>Intentos Limitados</h3>
+
+                <p>
+                    Bloqueo temporal tras múltiples
+                    accesos fallidos consecutivos.
+                </p>
+
+            </div>
+
+            <div class="security-card">
+
+                <div class="security-icon">🔒</div>
+
+                <h3>Sesiones Seguras</h3>
+
+                <p>
+                    Cierre automático por inactividad
+                    para proteger la información.
+                </p>
+
+            </div>
+
+            <div class="security-card">
+
+                <div class="security-icon">📋</div>
+
+                <h3>Bitácora</h3>
+
+                <p>
+                    Registro de actividades para
+                    auditoría y seguimiento.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+CTA INSTITUCIONAL
+===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-container">
+
+        <span class="cta-label">
+
+            PARTICIPACIÓN CIUDADANA
+
+        </span>
+
+        <h2>
+
+            ¿Viste un perrito extraviado?
+
+        </h2>
+
+        <p>
+
+            Tu colaboración puede ayudar a localizar
+            y reunir un perrito con su familia.
+
+        </p>
+
+        <a href="reportar-avistamiento.html"
+           class="btn-primary">
+
+            Reportar Avistamiento
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+FRANJA INSTITUCIONAL
+===================================================== -->
+
+<section class="footer-top-band"></section>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL RUPE
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/index-publico.js"></script>
+    <script src="assets/js/visitas.js"></script>
+</body>
+</html>

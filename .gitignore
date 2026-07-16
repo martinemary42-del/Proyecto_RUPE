@@ -1,0 +1,9 @@
+﻿target/
+backend-rupe/target/
+*.log
+.env
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
