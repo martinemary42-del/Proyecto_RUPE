@@ -7,3 +7,9 @@ Thumbs.db
 .idea/
 .vscode/
 *.iml
+backend-rupe/target/
+backend-rupe/.mvn/wrapper/maven-wrapper.jar
+*.log
+.env
+.DS_Store
+Thumbs.db
