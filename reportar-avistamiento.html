@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Avistamiento | RUPE</title>
+
+    <!-- CSS globales -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/avistamiento.css?v=20260630-2">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Tipografía e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+
+<body>
+
+<!-- =====================================================
+HEADER INSTITUCIONAL
+===================================================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/img/logo/logo-rupe.png" alt="Logo RUPE">
+
+            <div class="logo-text">
+
+                <h1>RUPE</h1>
+
+                <p>Registro Único de Perritos Extraviados</p>
+
+            </div>
+
+        </div>
+
+                        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="perritos-extraviados.html">Perritos Extraviados</a>
+            <a href="reportar-avistamiento.html" class="active">Reportar Avistamiento</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html" class="btn-nav-login">Iniciar Sesión</a>
+            <a href="registro.html" class="btn-nav-register">Registrarse</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+BARRA INSTITUCIONAL
+===================================================== -->
+
+<section class="avistamiento-banner">
+
+    <i class="fas fa-location-dot"></i>
+
+    <p>
+        Reporta un perrito visto en la vía pública o bajo resguardo ciudadano.
+    </p>
+
+</section>
+
+<!-- =====================================================
+FORMULARIO DE AVISTAMIENTO
+===================================================== -->
+
+<main class="avistamiento-page">
+
+    <section class="avistamiento-wrapper">
+
+        <!-- Panel informativo -->
+
+        <div class="avistamiento-info">
+
+            <span class="avistamiento-badge">
+                Reporte ciudadano
+            </span>
+
+            <h1>
+                Ayuda a localizar a un perrito extraviado
+            </h1>
+
+            <p>
+                Si viste un perrito extraviado, puedes reportar su ubicación.
+                Si cuentas con un folio RUPE o código QR, el sistema podrá
+                notificar más rápido al propietario.
+            </p>
+
+            <div class="avistamiento-list">
+
+                <div>
+                    <i class="fas fa-qrcode"></i>
+                    <span>El folio o QR permite relacionar el avistamiento con un reporte activo.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-camera"></i>
+                    <span>Una fotografía ayuda al propietario a validar la coincidencia.</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-user-shield"></i>
+                    <span>Los datos de contacto solo se liberan si el dueño confirma la identidad del perrito.</span>
+                </div>
+
+            </div>
+
+
+            <div class="recomendaciones-box">
+
+    <h3>Recomendaciones para quien reporta</h3>
+
+    <div class="recomendaciones-grid">
+
+        <div class="recomendacion-do">
+
+            <h4>Qué hacer</h4>
+
+            <ul>
+                <li>Mantener la calma y acercarse despacio.</li>
+                <li>Tomar una fotografía clara del perrito.</li>
+                <li>Buscar si existe un cartel con código QR.</li>
+                <li>Registrar ubicación, fecha y hora aproximada.</li>
+                <li>Reportar si está herido o en zona de riesgo.</li>
+            </ul>
+
+        </div>
+
+        <div class="recomendacion-dont">
+
+            <h4>Qué no hacer</h4>
+
+            <ul>
+                <li>No intentar atraparlo de golpe.</li>
+                <li>No ofrecer comida desconocida.</li>
+                <li>No retenerlo sin reportarlo en RUPE.</li>
+                <li>No pedir dinero ni recompensas.</li>
+                <li>No ignorarlo si está en peligro.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+        </div>
+
+        <!-- Tarjeta formulario -->
+
+        <div class="avistamiento-card">
+
+            <div class="avistamiento-card-header">
+
+                <h2>
+                    Reportar avistamiento
+                </h2>
+
+                <p>
+                    Completa la información del lugar donde viste al perrito.
+                </p>
+
+            </div>
+
+            <!-- Datos que se enviarán al backend: tabla AVISTAMIENTO. -->
+            <form class="avistamiento-form" id="formAvistamiento" method="post" enctype="multipart/form-data" data-api="avistamientos">
+
+                <!-- Folio opcional -->
+
+                <div class="form-group">
+
+                    <label for="folio">
+                        Folio RUPE
+                        <span class="optional">(opcional)</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="folio"
+                        name="folio"
+                        placeholder="Ej. RUPE-2026-000125">
+
+                </div>
+
+                <div class="form-note">
+
+                    <i class="fas fa-circle-info"></i>
+
+                    <p>
+                        Si no conoces el folio, también puedes enviar el reporte.
+                        El sistema lo enviará a revisión.
+                    </p>
+
+                </div>
+
+                <!-- Ubicación -->
+
+                <div class="form-group">
+
+                    <label for="fecha_avistamiento">
+                        Fecha del avistamiento
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        required>
+
+                </div>
+
+             <div class="form-row">
+
+    <div class="form-group">
+
+        <label for="id_estado">
+            Estado
+        </label>
+
+        <select id="id_estado" name="id_estado" required>
+            <option value="">Selecciona un estado</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="id_municipio">
+            Municipio / Alcaldía
+        </label>
+
+        <select id="id_municipio" name="id_municipio" required>
+            <option value="">Primero selecciona un estado</option>
+        </select>
+
+    </div>
+
+</div>
+
+<div class="form-row">
+
+    <div class="form-group">
+
+        <label for="id_colonia">
+            Colonia
+        </label>
+
+        <select id="id_colonia" name="id_colonia" required>
+            <option value="">Primero selecciona municipio/alcaldía</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="codigo_postal">
+            Código postal
+        </label>
+
+        <input
+            type="text"
+            id="cp"
+            name="cp"
+            placeholder="Se llenará automáticamente"
+            readonly>
+
+    </div>
+
+</div>
+
+                <div class="form-group">
+
+                    <label for="referencias">
+                        Referencias del lugar
+                    </label>
+
+                    <textarea
+                        id="referencias"
+                        name="referencias"
+                        placeholder="Ej. Cerca del parque, frente a una tienda, junto a una avenida principal."
+                        required></textarea>
+
+                </div>
+
+                <!-- Evidencia -->
+
+                <div class="form-group">
+
+                    <label for="foto_avistamiento">
+                        Fotografía del perrito
+                    </label>
+
+                    <input
+                        type="file"
+                        id="foto_avistamiento"
+                        name="foto_avistamiento"
+                        accept=".jpg,.jpeg,.png,.webp"
+                        required>
+
+                    <small>
+                        La fotografía es obligatoria. Formatos permitidos: JPG, PNG o WebP. La imagen se optimiza automáticamente.
+                    </small>
+
+                </div>
+
+                <!-- Resguardo -->
+
+                <div class="resguardo-box">
+
+                    <h3>
+                        ¿Tienes resguardado al perrito?
+                    </h3>
+
+                    <div class="radio-group">
+
+                        <label>
+                            <input type="radio" name="resguardado" value="si">
+                            Sí, lo tengo bajo resguardo temporal
+                        </label>
+
+                        <label>
+                            <input type="radio" name="resguardado" value="no" checked>
+                            No, solo lo vi en la zona indicada
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Contacto opcional condicionado -->
+
+                <div class="contacto-resguardo">
+
+                    <h3>
+                        Datos de contacto en caso de resguardo
+                    </h3>
+
+                    <p>
+                        Estos datos solo serán visibles para el propietario si confirma que el perrito coincide con su reporte.
+                    </p>
+
+                    <div class="form-group">
+
+                        <label for="nombre_resguardante">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre_resguardante"
+                            name="nombre_resguardante"
+                            placeholder="Nombre del reportante">
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="correo_resguardante">
+                                Correo electrónico
+                            </label>
+
+                            <input
+                                type="email"
+                                id="correo_resguardante"
+                                name="correo_resguardante"
+                                placeholder="correo@ejemplo.com">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="telefono_resguardante">
+                                Teléfono
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefono_resguardante"
+                                name="telefono_resguardante"
+                                placeholder="Ej. 5512345678">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Descripcion publica util para busqueda sin exponer datos personales. -->
+
+                <div class="form-group">
+
+                    <label for="descripcion">
+                        Señas particulares o descripcion del perrito
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="4"
+                        minlength="10"
+                        maxlength="1000"
+                        required
+                        placeholder="Ej. Manchita blanca en el pecho, collar rojo, cojea un poco, tamaño mediano."></textarea>
+
+                    <small>
+                        Esta informacion ayuda a comparar avistamientos en la busqueda publica sin publicar datos personales.
+                    </small>
+
+                </div>
+
+                <!-- CAPTCHA Turnstile para proteger el formulario público. -->
+
+                <div class="turnstile-box">
+
+                    <label>
+                        Verificación de seguridad
+                    </label>
+
+                    <div
+                        class="cf-turnstile"
+                        data-sitekey="0x4AAAAAAD2qcOftlLYVzrWX"
+                        data-theme="light"
+                        data-size="normal"
+                        data-action="reportar_avistamiento">
+                    </div>
+
+                    <small>
+                        Esta verificación ayuda a reducir reportes automáticos o falsos.
+                        En producción se debe cambiar por la llave real de Cloudflare Turnstile.
+                    </small>
+
+                </div>
+
+                <!-- Privacidad -->
+
+                <div class="privacy-check">
+
+                    <input type="checkbox" id="privacidad" required>
+
+                    <label for="privacidad">
+                        Confirmo que la información proporcionada es verídica
+                        y acepto el uso de mis datos para fines de localización
+                        y recuperación del perrito.
+                    </label>
+
+                </div>
+
+                <button type="submit" class="btn-avistamiento">
+
+                    Enviar reporte ciudadano
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+FOOTER INSTITUCIONAL
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+
+        <div class="footer-column">
+
+            <h3>RUPE</h3>
+
+            <p>
+
+                Registro Único de Perritos Extraviados.
+
+            </p>
+
+            <p>
+
+                Plataforma académica orientada a facilitar
+                la búsqueda y recuperación de perritos
+                extraviados mediante la participación ciudadana.
+
+            </p>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+
+        <div class="footer-column">
+
+            <h3>Enlaces</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perritos-extraviados.html">
+                        Perritos Extraviados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#como-funciona">
+                        ¿Cómo Funciona?
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 3 -->
+
+        <div class="footer-column">
+
+            <h3>Información Legal</h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="aviso-privacidad.html">
+
+                        Aviso de Privacidad
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="termino-uso.html">
+
+                        Términos de Uso
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="politica-seguridad.html">
+
+                        Política de Seguridad
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COLUMNA 4 -->
+
+        <div class="footer-column">
+
+            <h3>Proyecto Académico</h3>
+
+            <p>
+
+                Universidad Abierta y a Distancia de México.
+
+            </p>
+
+            <p>
+
+                Ingeniería en Desarrollo de Software.
+
+            </p>
+
+            <p>
+
+                Versión 1.0
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 RUPE. Todos los derechos reservados.
+
+        </p>
+
+        <p>
+
+            Sistema desarrollado con fines académicos y de investigación.
+
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="assets/js/api-config.js"></script>
+<script src="assets/js/feedback.js"></script>
+    <script src="assets/js/image-compressor.js"></script>
+    <script src="assets/js/avistamiento.js?v=20260714-3"></script>
+    <script src="assets/js/visitas.js"></script>
+</body>
+</html>
+
+
