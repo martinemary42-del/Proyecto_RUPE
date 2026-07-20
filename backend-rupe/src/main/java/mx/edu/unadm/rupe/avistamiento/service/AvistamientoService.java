@@ -1,9 +1,6 @@
 package mx.edu.unadm.rupe.avistamiento.service;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import java.time.LocalDate;
@@ -11,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-import java.util.UUID;
 import mx.edu.unadm.rupe.avistamiento.dto.AvistamientoReclamoRequest;
 import mx.edu.unadm.rupe.avistamiento.dto.AvistamientoRequest;
 import mx.edu.unadm.rupe.avistamiento.dto.AvistamientoResponse;
@@ -148,7 +144,7 @@ public class AvistamientoService {
         // Los avistamientos son publicos, por eso siempre pasan por CAPTCHA antes de guardar.
         turnstileService.validarToken(request.getTurnstileToken());
 
-        String fotoAvistamientoUrl = guardarFotoObligatoria(fotoAvistamiento);
+        validarFotoObligatoria(fotoAvistamiento);
         validarFechaPermitida(request.getFecha(), "La fecha del avistamiento debe estar dentro de los ultimos 15 dias y no puede ser futura");
 
         CatalogoEstatus estatus = estatusRepository.findByNombre("PENDIENTE")
@@ -183,14 +179,33 @@ public class AvistamientoService {
         avistamiento.setNombreResguardante(limpiarOpcional(request.getNombreResguardante()));
         avistamiento.setCorreoResguardante(limpiarOpcional(request.getCorreoResguardante()));
         avistamiento.setTelefonoResguardante(limpiarOpcional(request.getTelefonoResguardante()));
-        avistamiento.setFotoAvistamiento(fotoAvistamientoUrl);
 
         Avistamiento guardado = avistamientoRepository.save(avistamiento);
         asignarFolioAvistamiento(guardado);
+        guardarFotoEnBase(guardado, fotoAvistamiento);
+        guardado.setFotoAvistamiento("/api/publico/avistamientos/" + guardado.getIdAvistamiento() + "/foto");
         guardado = avistamientoRepository.save(guardado);
         notificacionService.crearPorAvistamiento(guardado);
         return new AvistamientoResponse(guardado, "Avistamiento registrado correctamente");
     }
+
+
+    @Transactional(readOnly = true)
+    public FotoAvistamientoData obtenerFotoAvistamiento(Integer idAvistamiento) {
+        Avistamiento avistamiento = avistamientoRepository.findById(idAvistamiento)
+            .filter(a -> Boolean.TRUE.equals(a.getActivo()))
+            .orElseThrow(() -> new IllegalArgumentException("Fotografia no encontrada"));
+
+        if (avistamiento.getFotoContenido() == null || avistamiento.getFotoContenido().length == 0) {
+            throw new IllegalArgumentException("Fotografia no encontrada");
+        }
+
+        String tipo = avistamiento.getFotoTipoContenido() != null ? avistamiento.getFotoTipoContenido() : "image/jpeg";
+        String nombre = avistamiento.getFotoNombreArchivo() != null ? avistamiento.getFotoNombreArchivo() : "avistamiento.jpg";
+        return new FotoAvistamientoData(avistamiento.getFotoContenido(), tipo, nombre);
+    }
+
+    public record FotoAvistamientoData(byte[] contenido, String tipoContenido, String nombreArchivo) {}
 
 
     private String obtenerFotoMascota(Avistamiento avistamiento) {
@@ -219,20 +234,19 @@ public class AvistamientoService {
         return limpia;
     }
 
-    private String guardarFotoObligatoria(MultipartFile foto) {
+    private void validarFotoObligatoria(MultipartFile foto) {
         if (foto == null || foto.isEmpty()) {
             throw new IllegalArgumentException("Agrega una fotografia clara del perrito para registrar el avistamiento");
         }
         validarFoto(foto);
+    }
+
+    private void guardarFotoEnBase(Avistamiento avistamiento, MultipartFile foto) {
         try {
-            // Nombre aleatorio para evitar colisiones y no publicar el nombre original del archivo.
-            Path carpeta = Paths.get("uploads", "avistamientos").toAbsolutePath().normalize();
-            Files.createDirectories(carpeta);
             String extension = obtenerExtension(foto.getOriginalFilename());
-            String nombreArchivo = "avistamiento-" + UUID.randomUUID() + extension;
-            Path destino = carpeta.resolve(nombreArchivo);
-            foto.transferTo(destino);
-            return "/uploads/avistamientos/" + nombreArchivo;
+            avistamiento.setFotoContenido(foto.getBytes());
+            avistamiento.setFotoTipoContenido(foto.getContentType());
+            avistamiento.setFotoNombreArchivo("avistamiento-" + avistamiento.getIdAvistamiento() + extension);
         } catch (IOException ex) {
             throw new IllegalStateException("No se pudo guardar la fotografia del avistamiento");
         }

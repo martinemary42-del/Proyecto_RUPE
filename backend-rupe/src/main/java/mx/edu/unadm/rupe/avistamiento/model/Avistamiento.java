@@ -6,6 +6,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -56,6 +57,16 @@ public class Avistamiento {
 
     @Column(name = "foto_avistamiento", length = 250)
     private String fotoAvistamiento;
+
+    @Lob
+    @Column(name = "foto_contenido", columnDefinition = "LONGBLOB")
+    private byte[] fotoContenido;
+
+    @Column(name = "foto_tipo_contenido", length = 80)
+    private String fotoTipoContenido;
+
+    @Column(name = "foto_nombre_archivo", length = 180)
+    private String fotoNombreArchivo;
 
     @Column(nullable = false)
     private Boolean resguardado = false;
@@ -109,6 +120,12 @@ public class Avistamiento {
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
     public String getFotoAvistamiento() { return fotoAvistamiento; }
     public void setFotoAvistamiento(String fotoAvistamiento) { this.fotoAvistamiento = fotoAvistamiento; }
+    public byte[] getFotoContenido() { return fotoContenido; }
+    public void setFotoContenido(byte[] fotoContenido) { this.fotoContenido = fotoContenido; }
+    public String getFotoTipoContenido() { return fotoTipoContenido; }
+    public void setFotoTipoContenido(String fotoTipoContenido) { this.fotoTipoContenido = fotoTipoContenido; }
+    public String getFotoNombreArchivo() { return fotoNombreArchivo; }
+    public void setFotoNombreArchivo(String fotoNombreArchivo) { this.fotoNombreArchivo = fotoNombreArchivo; }
     public Boolean getResguardado() { return resguardado; }
     public void setResguardado(Boolean resguardado) { this.resguardado = resguardado; }
     public String getNombreResguardante() { return nombreResguardante; }
