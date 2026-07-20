@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import java.util.List;
 import mx.edu.unadm.rupe.avistamiento.service.AvistamientoService;
 import mx.edu.unadm.rupe.avistamiento.service.AvistamientoService.FotoAvistamientoData;
+import mx.edu.unadm.rupe.mascota.service.MascotaService;
+import mx.edu.unadm.rupe.mascota.service.MascotaService.FotoMascotaData;
 import mx.edu.unadm.rupe.publico.dto.PublicoAvistamientoResponse;
 import mx.edu.unadm.rupe.publico.dto.PublicoPaginaResponse;
 import mx.edu.unadm.rupe.publico.dto.PublicoReporteRecienteResponse;
@@ -27,10 +29,13 @@ public class PublicoController {
 
     private final PublicoService publicoService;
     private final AvistamientoService avistamientoService;
+    private final MascotaService mascotaService;
 
-    public PublicoController(PublicoService publicoService, AvistamientoService avistamientoService) {
+    public PublicoController(PublicoService publicoService, AvistamientoService avistamientoService,
+            MascotaService mascotaService) {
         this.publicoService = publicoService;
         this.avistamientoService = avistamientoService;
+        this.mascotaService = mascotaService;
     }
 
     @GetMapping("/resumen")
@@ -65,6 +70,15 @@ public class PublicoController {
             @RequestParam(required = false) String zona) {
         String busqueda = texto != null ? texto : folio;
         return publicoService.reportesActivosPaginados(pagina, tamanio, busqueda, raza, senas, sexo, zona);
+    }
+
+    @GetMapping("/mascotas/{idMascota}/foto")
+    public ResponseEntity<byte[]> fotoMascota(@PathVariable Integer idMascota) {
+        FotoMascotaData foto = mascotaService.obtenerFotoPrincipal(idMascota);
+        return ResponseEntity.ok()
+            .contentType(MediaType.parseMediaType(foto.tipoContenido()))
+            .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + foto.nombreArchivo() + "\"")
+            .body(foto.contenido());
     }
 
     @GetMapping("/avistamientos/{idAvistamiento}/foto")

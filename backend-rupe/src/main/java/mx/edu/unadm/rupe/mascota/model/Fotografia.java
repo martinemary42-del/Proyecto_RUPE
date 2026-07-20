@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -33,6 +34,13 @@ public class Fotografia {
     @Column(name = "tipo_fotografia", nullable = false, length = 40)
     private String tipoFotografia = "PRINCIPAL";
 
+    @Lob
+    @Column(name = "contenido", columnDefinition = "LONGBLOB")
+    private byte[] contenido;
+
+    @Column(name = "tipo_contenido", length = 80)
+    private String tipoContenido;
+
     @Column(name = "es_principal", nullable = false)
     private Boolean esPrincipal = true;
 
@@ -52,6 +60,10 @@ public class Fotografia {
     public void setNombreArchivo(String nombreArchivo) { this.nombreArchivo = nombreArchivo; }
     public String getTipoFotografia() { return tipoFotografia; }
     public void setTipoFotografia(String tipoFotografia) { this.tipoFotografia = tipoFotografia; }
+    public byte[] getContenido() { return contenido; }
+    public void setContenido(byte[] contenido) { this.contenido = contenido; }
+    public String getTipoContenido() { return tipoContenido; }
+    public void setTipoContenido(String tipoContenido) { this.tipoContenido = tipoContenido; }
     public Boolean getEsPrincipal() { return esPrincipal; }
     public void setEsPrincipal(Boolean esPrincipal) { this.esPrincipal = esPrincipal; }
     public Boolean getActivo() { return activo; }

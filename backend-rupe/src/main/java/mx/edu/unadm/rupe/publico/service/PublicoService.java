@@ -205,7 +205,7 @@ public class PublicoService {
     private String obtenerFotoPrincipalUrl(Mascota mascota) {
         return fotografiaRepository
             .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(mascota.getIdMascota())
-            .map(foto -> "/uploads/mascotas/" + foto.getNombreArchivo())
+            .map(foto -> "/api/publico/mascotas/" + mascota.getIdMascota() + "/foto")
             .orElse(null);
     }
 }

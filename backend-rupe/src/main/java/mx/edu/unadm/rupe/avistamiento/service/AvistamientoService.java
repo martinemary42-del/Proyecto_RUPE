@@ -215,7 +215,7 @@ public class AvistamientoService {
         Integer idMascota = avistamiento.getReporte().getMascota().getIdMascota();
         return fotografiaRepository
             .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(idMascota)
-            .map(foto -> normalizarRutaFoto(foto.getRutaArchivo()))
+            .map(foto -> "/api/publico/mascotas/" + idMascota + "/foto")
             .orElse(null);
     }
 

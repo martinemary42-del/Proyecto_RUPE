@@ -2,14 +2,10 @@ package mx.edu.unadm.rupe.mascota.service;
 
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-import java.util.UUID;
 import mx.edu.unadm.rupe.catalogo.model.CatalogoColonia;
 import mx.edu.unadm.rupe.catalogo.model.CatalogoColor;
 import mx.edu.unadm.rupe.catalogo.model.CatalogoRaza;
@@ -173,7 +169,7 @@ public class MascotaService {
     private String obtenerFotoPrincipalUrl(Mascota mascota) {
         return fotografiaRepository
             .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(mascota.getIdMascota())
-            .map(foto -> "/uploads/mascotas/" + foto.getNombreArchivo())
+            .map(foto -> "/api/publico/mascotas/" + mascota.getIdMascota() + "/foto")
             .orElse(null);
     }
 
@@ -253,21 +249,17 @@ public class MascotaService {
         validarFoto(fotoPrincipal);
 
         try {
-            // Los archivos se guardan con nombre generado para evitar sobrescritura y exposicion del nombre original.
-            Path carpeta = Paths.get("uploads", "mascotas").toAbsolutePath().normalize();
-            Files.createDirectories(carpeta);
-
             String extension = obtenerExtension(fotoPrincipal.getOriginalFilename());
-            String nombreArchivo = "mascota-" + mascota.getIdMascota() + "-" + UUID.randomUUID() + extension;
-            Path destino = carpeta.resolve(nombreArchivo);
-            fotoPrincipal.transferTo(destino);
+            String nombreArchivo = "mascota-" + mascota.getIdMascota() + extension;
 
             desactivarFotosPrincipales(mascota);
 
             Fotografia fotografia = new Fotografia();
             fotografia.setMascota(mascota);
             fotografia.setNombreArchivo(nombreArchivo);
-            fotografia.setRutaArchivo(destino.toString());
+            fotografia.setRutaArchivo("/api/publico/mascotas/" + mascota.getIdMascota() + "/foto");
+            fotografia.setContenido(fotoPrincipal.getBytes());
+            fotografia.setTipoContenido(fotoPrincipal.getContentType());
             fotografia.setEsPrincipal(true);
             fotografia.setActivo(true);
             fotografiaRepository.save(fotografia);
@@ -275,6 +267,19 @@ public class MascotaService {
             throw new IllegalStateException("No se pudo guardar la fotografia");
         }
     }
+
+
+    @Transactional(readOnly = true)
+    public FotoMascotaData obtenerFotoPrincipal(Integer idMascota) {
+        Fotografia foto = fotografiaRepository
+            .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(idMascota)
+            .filter(f -> f.getContenido() != null && f.getContenido().length > 0)
+            .orElseThrow(() -> new IllegalArgumentException("Fotografia no encontrada"));
+        String tipo = foto.getTipoContenido() != null ? foto.getTipoContenido() : "image/jpeg";
+        return new FotoMascotaData(foto.getContenido(), tipo, foto.getNombreArchivo());
+    }
+
+    public record FotoMascotaData(byte[] contenido, String tipoContenido, String nombreArchivo) {}
 
 
     private void desactivarFotosPrincipales(Mascota mascota) {

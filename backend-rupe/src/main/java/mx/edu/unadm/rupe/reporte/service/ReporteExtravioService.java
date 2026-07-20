@@ -221,14 +221,12 @@ public class ReporteExtravioService {
                     "Registro Unico de Perritos Extraviados - RUPE", 190, y);
                 y -= 24;
 
-                String fotoUrl = obtenerFotoPrincipalUrl(reporte.getMascota());
-                if (fotoUrl != null) {
-                    Path fotoPath = Paths.get("uploads", "mascotas", fotoUrl.substring(fotoUrl.lastIndexOf("/") + 1))
-                        .toAbsolutePath().normalize();
-                    if (Files.exists(fotoPath)) {
-                        PDImageXObject image = PDImageXObject.createFromFileByExtension(fotoPath.toFile(), document);
-                        content.drawImage(image, margin + 56, y - 260, 400, 250);
-                    }
+                var fotoPrincipal = obtenerFotoPrincipal(reporte.getMascota());
+                if (fotoPrincipal.isPresent() && fotoPrincipal.get().getContenido() != null
+                        && fotoPrincipal.get().getContenido().length > 0) {
+                    PDImageXObject image = PDImageXObject.createFromByteArray(document,
+                        fotoPrincipal.get().getContenido(), fotoPrincipal.get().getNombreArchivo());
+                    content.drawImage(image, margin + 56, y - 260, 400, 250);
                 }
                 y -= 292;
 
@@ -299,11 +297,17 @@ public class ReporteExtravioService {
         return base + "/reportar-avistamiento.html?folio=" + reporte.getFolio();
     }
 
+    private java.util.Optional<mx.edu.unadm.rupe.mascota.model.Fotografia> obtenerFotoPrincipal(Mascota mascota) {
+        return fotografiaRepository
+            .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(
+                mascota.getIdMascota());
+    }
+
     private String obtenerFotoPrincipalUrl(Mascota mascota) {
         return fotografiaRepository
             .findFirstByMascotaIdMascotaAndEsPrincipalTrueAndActivoTrueOrderByFechaRegistroDesc(
                 mascota.getIdMascota())
-            .map(foto -> "/uploads/mascotas/" + foto.getNombreArchivo())
+            .map(foto -> "/api/publico/mascotas/" + mascota.getIdMascota() + "/foto")
             .orElse(null);
     }
 
