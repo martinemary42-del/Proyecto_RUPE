@@ -1,4 +1,4 @@
-﻿/* =====================================================
+/* =====================================================
    MIS AVISTAMIENTOS - RUPE
    Lista avisos reales vinculados a los reportes del dueño.
 ===================================================== */
@@ -289,7 +289,9 @@ function descartarAviso() {
 function resolverImagenAviso(ruta) {
     if (!ruta) return 'assets/img/logo/logo-rupe.png';
     if (ruta.startsWith('http')) return ruta;
-    if (ruta.startsWith('/uploads')) return `${RUPE_AVIS_API_BASE.replace('/api', '')}${ruta}`;
+    const origenBackend = RUPE_AVIS_API_BASE.replace('/api', '');
+    if (ruta.startsWith('/api')) return `${origenBackend}${ruta}`;
+    if (ruta.startsWith('/uploads')) return `${origenBackend}${ruta}`;
     return ruta;
 }
 
@@ -636,3 +638,4 @@ async function marcarNotificacionDesdeUrl(silencioso = true) {
         // La lectura de la notificacion no bloquea la validacion del avistamiento.
     }
 }
+
